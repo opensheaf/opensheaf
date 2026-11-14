@@ -137,13 +137,13 @@
     }
 }
 
-/* 4. The page: a column of 36rem of text at 17px, with a leading of 1.6;
+/* 4. The page: a column of 42rem of text at 17px, with a leading of 1.6;
    paragraphs are separated by space. */
 html { font-size: 17px; }
 body {
     font-size: 1rem;
     line-height: 1.6;
-    max-width: 40rem;
+    max-width: 46rem;
     padding: 2rem 2rem 6rem;
     font-kerning: normal;
     font-variant-numeric: lining-nums;
@@ -203,7 +203,9 @@ dfn { font-style: italic; font-weight: 400; }
    with no markup of its own: the brackets are hidden (the paragraph has no
    font size, the links have theirs), the first link is the name, set to
    the left, and the others stand on the right. The
-   symbol is a mask, so that it takes the ink of both themes. */
+   symbol is a mask, so that it takes the ink of both themes; it is
+   resources/brand/opensheaf-symbol.svg written into the stylesheet, since
+   browsers load no mask from a page opened as a file. */
 .notes-header { margin: 0 0 3.5rem; padding: 0; }
 .notes-header p {
     padding: 0;
@@ -240,8 +242,8 @@ dfn { font-style: italic; font-weight: 400; }
     margin-right: 0.4em;
     vertical-align: -0.2em;
     background-color: currentColor;
-    -webkit-mask: url("brand/opensheaf-symbol.svg") center / contain no-repeat;
-    mask: url("brand/opensheaf-symbol.svg") center / contain no-repeat;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 212' width='192' height='212' fill='%23000'%3E%3Ccircle cx='76' cy='14' r='5.7' /%3E%3Ccircle cx='96' cy='14' r='5.7' /%3E%3Ccircle cx='116' cy='14' r='5.7' /%3E%3Ccircle cx='136' cy='14' r='5.7' /%3E%3Ccircle cx='156' cy='14' r='5.7' /%3E%3Ccircle cx='176' cy='14' r='5.7' /%3E%3Ccircle cx='76' cy='34' r='5.7' /%3E%3Ccircle cx='96' cy='34' r='5.7' /%3E%3Ccircle cx='116' cy='34' r='5.7' /%3E%3Ccircle cx='136' cy='34' r='5.7' /%3E%3Ccircle cx='156' cy='34' r='5.7' /%3E%3Ccircle cx='176' cy='34' r='5.7' /%3E%3Ccircle cx='76' cy='54' r='5.7' /%3E%3Ccircle cx='96' cy='54' r='5.7' /%3E%3Ccircle cx='116' cy='54' r='5.7' /%3E%3Ccircle cx='136' cy='54' r='5.7' /%3E%3Ccircle cx='156' cy='54' r='5.7' /%3E%3Ccircle cx='176' cy='54' r='5.7' /%3E%3Ccircle cx='16' cy='74' r='5.7' /%3E%3Ccircle cx='36' cy='74' r='5.7' /%3E%3Ccircle cx='56' cy='74' r='5.7' /%3E%3Ccircle cx='76' cy='74' r='8.2' /%3E%3Ccircle cx='96' cy='74' r='8.2' /%3E%3Ccircle cx='116' cy='74' r='8.2' /%3E%3Ccircle cx='136' cy='74' r='5.7' /%3E%3Ccircle cx='156' cy='74' r='5.7' /%3E%3Ccircle cx='176' cy='74' r='5.7' /%3E%3Ccircle cx='16' cy='94' r='5.7' /%3E%3Ccircle cx='36' cy='94' r='5.7' /%3E%3Ccircle cx='56' cy='94' r='5.7' /%3E%3Ccircle cx='76' cy='94' r='8.2' /%3E%3Ccircle cx='96' cy='94' r='8.2' /%3E%3Ccircle cx='116' cy='94' r='8.2' /%3E%3Ccircle cx='136' cy='94' r='5.7' /%3E%3Ccircle cx='156' cy='94' r='5.7' /%3E%3Ccircle cx='176' cy='94' r='5.7' /%3E%3Ccircle cx='16' cy='114' r='5.7' /%3E%3Ccircle cx='36' cy='114' r='5.7' /%3E%3Ccircle cx='56' cy='114' r='5.7' /%3E%3Ccircle cx='76' cy='114' r='8.2' /%3E%3Ccircle cx='96' cy='114' r='8.2' /%3E%3Ccircle cx='116' cy='114' r='8.2' /%3E%3Ccircle cx='136' cy='114' r='5.7' /%3E%3Ccircle cx='156' cy='114' r='5.7' /%3E%3Ccircle cx='176' cy='114' r='5.7' /%3E%3Ccircle cx='16' cy='134' r='5.7' /%3E%3Ccircle cx='36' cy='134' r='5.7' /%3E%3Ccircle cx='56' cy='134' r='5.7' /%3E%3Ccircle cx='76' cy='134' r='8.2' /%3E%3Ccircle cx='96' cy='134' r='8.2' /%3E%3Ccircle cx='116' cy='134' r='8.2' /%3E%3Ccircle cx='136' cy='134' r='5.7' /%3E%3Ccircle cx='156' cy='134' r='5.7' /%3E%3Ccircle cx='176' cy='134' r='5.7' /%3E%3Ccircle cx='16' cy='154' r='5.7' /%3E%3Ccircle cx='36' cy='154' r='5.7' /%3E%3Ccircle cx='56' cy='154' r='5.7' /%3E%3Ccircle cx='76' cy='154' r='5.7' /%3E%3Ccircle cx='96' cy='154' r='5.7' /%3E%3Ccircle cx='116' cy='154' r='5.7' /%3E%3Ccircle cx='16' cy='174' r='5.7' /%3E%3Ccircle cx='36' cy='174' r='5.7' /%3E%3Ccircle cx='56' cy='174' r='5.7' /%3E%3Ccircle cx='76' cy='174' r='5.7' /%3E%3Ccircle cx='96' cy='174' r='5.7' /%3E%3Ccircle cx='116' cy='174' r='5.7' /%3E%3Ccircle cx='16' cy='194' r='5.7' /%3E%3Ccircle cx='36' cy='194' r='5.7' /%3E%3Ccircle cx='56' cy='194' r='5.7' /%3E%3Ccircle cx='76' cy='194' r='5.7' /%3E%3Ccircle cx='96' cy='194' r='5.7' /%3E%3Ccircle cx='116' cy='194' r='5.7' /%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 212' width='192' height='212' fill='%23000'%3E%3Ccircle cx='76' cy='14' r='5.7' /%3E%3Ccircle cx='96' cy='14' r='5.7' /%3E%3Ccircle cx='116' cy='14' r='5.7' /%3E%3Ccircle cx='136' cy='14' r='5.7' /%3E%3Ccircle cx='156' cy='14' r='5.7' /%3E%3Ccircle cx='176' cy='14' r='5.7' /%3E%3Ccircle cx='76' cy='34' r='5.7' /%3E%3Ccircle cx='96' cy='34' r='5.7' /%3E%3Ccircle cx='116' cy='34' r='5.7' /%3E%3Ccircle cx='136' cy='34' r='5.7' /%3E%3Ccircle cx='156' cy='34' r='5.7' /%3E%3Ccircle cx='176' cy='34' r='5.7' /%3E%3Ccircle cx='76' cy='54' r='5.7' /%3E%3Ccircle cx='96' cy='54' r='5.7' /%3E%3Ccircle cx='116' cy='54' r='5.7' /%3E%3Ccircle cx='136' cy='54' r='5.7' /%3E%3Ccircle cx='156' cy='54' r='5.7' /%3E%3Ccircle cx='176' cy='54' r='5.7' /%3E%3Ccircle cx='16' cy='74' r='5.7' /%3E%3Ccircle cx='36' cy='74' r='5.7' /%3E%3Ccircle cx='56' cy='74' r='5.7' /%3E%3Ccircle cx='76' cy='74' r='8.2' /%3E%3Ccircle cx='96' cy='74' r='8.2' /%3E%3Ccircle cx='116' cy='74' r='8.2' /%3E%3Ccircle cx='136' cy='74' r='5.7' /%3E%3Ccircle cx='156' cy='74' r='5.7' /%3E%3Ccircle cx='176' cy='74' r='5.7' /%3E%3Ccircle cx='16' cy='94' r='5.7' /%3E%3Ccircle cx='36' cy='94' r='5.7' /%3E%3Ccircle cx='56' cy='94' r='5.7' /%3E%3Ccircle cx='76' cy='94' r='8.2' /%3E%3Ccircle cx='96' cy='94' r='8.2' /%3E%3Ccircle cx='116' cy='94' r='8.2' /%3E%3Ccircle cx='136' cy='94' r='5.7' /%3E%3Ccircle cx='156' cy='94' r='5.7' /%3E%3Ccircle cx='176' cy='94' r='5.7' /%3E%3Ccircle cx='16' cy='114' r='5.7' /%3E%3Ccircle cx='36' cy='114' r='5.7' /%3E%3Ccircle cx='56' cy='114' r='5.7' /%3E%3Ccircle cx='76' cy='114' r='8.2' /%3E%3Ccircle cx='96' cy='114' r='8.2' /%3E%3Ccircle cx='116' cy='114' r='8.2' /%3E%3Ccircle cx='136' cy='114' r='5.7' /%3E%3Ccircle cx='156' cy='114' r='5.7' /%3E%3Ccircle cx='176' cy='114' r='5.7' /%3E%3Ccircle cx='16' cy='134' r='5.7' /%3E%3Ccircle cx='36' cy='134' r='5.7' /%3E%3Ccircle cx='56' cy='134' r='5.7' /%3E%3Ccircle cx='76' cy='134' r='8.2' /%3E%3Ccircle cx='96' cy='134' r='8.2' /%3E%3Ccircle cx='116' cy='134' r='8.2' /%3E%3Ccircle cx='136' cy='134' r='5.7' /%3E%3Ccircle cx='156' cy='134' r='5.7' /%3E%3Ccircle cx='176' cy='134' r='5.7' /%3E%3Ccircle cx='16' cy='154' r='5.7' /%3E%3Ccircle cx='36' cy='154' r='5.7' /%3E%3Ccircle cx='56' cy='154' r='5.7' /%3E%3Ccircle cx='76' cy='154' r='5.7' /%3E%3Ccircle cx='96' cy='154' r='5.7' /%3E%3Ccircle cx='116' cy='154' r='5.7' /%3E%3Ccircle cx='16' cy='174' r='5.7' /%3E%3Ccircle cx='36' cy='174' r='5.7' /%3E%3Ccircle cx='56' cy='174' r='5.7' /%3E%3Ccircle cx='76' cy='174' r='5.7' /%3E%3Ccircle cx='96' cy='174' r='5.7' /%3E%3Ccircle cx='116' cy='174' r='5.7' /%3E%3Ccircle cx='16' cy='194' r='5.7' /%3E%3Ccircle cx='36' cy='194' r='5.7' /%3E%3Ccircle cx='56' cy='194' r='5.7' /%3E%3Ccircle cx='76' cy='194' r='5.7' /%3E%3Ccircle cx='96' cy='194' r='5.7' /%3E%3Ccircle cx='116' cy='194' r='5.7' /%3E%3C/svg%3E") center / contain no-repeat;
 }
 /* Room for the theme button, which floats over the right end of the
    masthead on narrow windows. */

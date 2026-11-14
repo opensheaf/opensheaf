@@ -94,8 +94,9 @@ and here:
   on white. No other colours.
 - **Type.** On the sites, text in Geist at 17px (about 16px in the
   Explorer and on a phone); in the documents, in CMU Serif at 20px (18px
-  on a phone). Leading 1.6, lining numerals, in a column of about 36rem
-  (46rem in the Explorer, for its tables). Headings in the regular weight: the
+  on a phone). Leading 1.6, lining numerals, in a column of about 42rem
+  on this site (46rem in the Explorer, for its tables) and 36rem in the
+  documents. Headings in the regular weight: the
   title of a page 2.4 to 2.5rem, tight, centred like the title of a paper,
   with authors (italics) and first facts centred below it; sections
   1.5rem; subsections in italics, a little larger than the text. Bold
@@ -147,7 +148,7 @@ and here:
 
 - Home page: the opening `<picture>` block in `README.md` provides light and
   dark logo variants on GitHub. Its `img` source becomes the site hero at 65%
-  of the column (`0.65par`), with `vspace` 4fn above and 5fn below.
+  of the column (`0.65par`), with `vspace` 1fn above and 2.5fn below.
 - A first-line `<!-- site hero: path -->` comment can instead select a site
   hero that differs from an image on the following line.
 - Other pages open with their `# Title`; no images above it.

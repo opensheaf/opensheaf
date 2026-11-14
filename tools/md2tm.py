@@ -270,7 +270,7 @@ def convert(md):
     if hero:
         t = esc(hero_alt)
         head += (f'  <specific|html*|<html-class|visually-hidden|<html-tag|h:h1|{t}>>>\n\n'
-                 f'  <\\center>\n    <vspace*|4fn><html-attr|alt|{t}|{hero}><vspace|5fn>\n'
+                 f'  <\\center>\n    <vspace*|1fn><html-attr|alt|{t}|{hero}><vspace|2.5fn>\n'
                  '  </center>\n\n')
     else:
         head += f'  <chapter*|{title_markup}>\n\n'
