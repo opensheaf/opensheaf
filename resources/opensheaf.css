@@ -9,13 +9,13 @@
    - a page is a sheet of paper: warm white, black ink, one narrow column,
      generous leading, a lot of air;
    - two kinds of page: the sites (this one, the Explorer) are set in a
-     sans-serif (Geist); the documents (the pages of an archive, the woven
+     sans-serif (IBM Plex Sans); the documents (the pages of an archive, the woven
      literate programs) are read in a mathematical serif (CMU Serif, the
-     Computer Modern of TeXmacs and TeX), with the small Geist of the
+     Computer Modern of TeXmacs and TeX), with the small sans of the
      apparatus around it (navigation, labels, tags, table headers,
      controls); a monospace for literal names everywhere;
-   - no colour: hierarchy comes from size, space and italics, not from weight
-     or hue. Three quiet tones only say a state (verified, failed, warning);
+   - no colour: hierarchy comes from size, space and weight, not from hue.
+     Three quiet tones only say a state (verified, failed, warning);
    - hairlines and tints, no frames, no shadows. */
 
 /* 1. Tokens. This block is the same, to the letter, in the four
@@ -35,8 +35,8 @@
     --os-warn: #7d5200;
     --os-warn-bg: #f5ecd6;
     --os-serif: "CMU Serif", "Latin Modern Roman", "Computer Modern", "Times New Roman", serif;
-    --os-sans: Geist, ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-    --os-mono: "Source Code Pro", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --os-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --os-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
@@ -88,23 +88,38 @@
     }
 }
 
-/* 2. The face of the site, Geist, served from here (resources/fonts/geist/).
-   The serif of the documents (resources/fonts/cmu/) is served from here
-   too, for the pages of archives and the woven programs; the site does not
-   use it. */
+/* 2. The faces of the site, served from here: IBM Plex Sans for the text,
+   the titles and the apparatus (resources/fonts/plex/), JetBrains Mono for
+   the code (resources/fonts/jetbrains/). Geist (resources/fonts/geist/)
+   and the serif of the documents (resources/fonts/cmu/) are served from
+   here too, for the other OpenSheaf pages; the site does not use them. */
 @font-face {
-    font-family: Geist;
+    font-family: "IBM Plex Sans";
     font-style: normal;
-    font-weight: 100 900;
+    font-weight: 100 700;
     font-display: swap;
-    src: url("fonts/geist/Geist-Roman.woff2") format("woff2");
+    src: url("fonts/plex/IBMPlexSans-Roman.woff2") format("woff2");
 }
 @font-face {
-    font-family: Geist;
+    font-family: "IBM Plex Sans";
     font-style: italic;
-    font-weight: 100 900;
+    font-weight: 100 700;
     font-display: swap;
-    src: url("fonts/geist/Geist-Italic.woff2") format("woff2");
+    src: url("fonts/plex/IBMPlexSans-Italic.woff2") format("woff2");
+}
+@font-face {
+    font-family: "JetBrains Mono";
+    font-style: normal;
+    font-weight: 100 800;
+    font-display: swap;
+    src: url("fonts/jetbrains/JetBrainsMono-Roman.woff2") format("woff2");
+}
+@font-face {
+    font-family: "JetBrains Mono";
+    font-style: italic;
+    font-weight: 100 800;
+    font-display: swap;
+    src: url("fonts/jetbrains/JetBrainsMono-Italic.woff2") format("woff2");
 }
 
 /* 3. The variables of the base stylesheets, set from the tokens (:root
@@ -137,13 +152,13 @@
     }
 }
 
-/* 4. The page: a column of 42rem of text at 17px, with a leading of 1.6;
+/* 4. The page: a column of 47rem of text at 16.5px, with a leading of 1.6;
    paragraphs are separated by space. */
-html { font-size: 17px; }
+html { font-size: 16.5px; }
 body {
     font-size: 1rem;
     line-height: 1.6;
-    max-width: 46rem;
+    max-width: 51rem;
     padding: 2rem 2rem 6rem;
     font-kerning: normal;
     font-variant-numeric: lining-nums;
@@ -162,17 +177,17 @@ li::marker { color: var(--os-faint); }
 ol li::marker { color: var(--os-muted); }
 :focus-visible { outline: 1.5px solid var(--os-ink); outline-offset: 3px; }
 
-/* 5. Headings: in the face of the text, in its regular weight. The title
-   of a page is set large and centred, like the title of a paper; sections
-   are larger than the text, subsections in italics at its size. */
+/* 5. Headings: in the face of the text, in bold. The title of a page is
+   set large and centred, like the title of a paper; sections are larger
+   than the text, subsections in italics at its size. */
 h1, h2, h3, h4, h5, h6 {
     color: var(--os-ink);
-    font-weight: 400;
+    font-weight: 700;
     line-height: 1.2;
     text-wrap: balance;
 }
-h1 { font-size: 2.5rem; line-height: 1.1; letter-spacing: -0.03em; text-align: center; margin: 0.3em 0 0.8em; }
-h2 { font-size: 1.5rem; letter-spacing: -0.015em; margin: 2.2em 0 0.4em; }
+h1 { font-size: 2.55rem; line-height: 1.1; letter-spacing: -0.02em; text-align: center; margin: 0.3em 0 0.8em; }
+h2 { font-size: 1.35rem; letter-spacing: -0.01em; margin: 2.2em 0 0.4em; }
 h3 { font-size: 1.15rem; font-style: italic; margin: 1.7em 0 0.2em; }
 h4, h5, h6 { font-size: 1rem; font-style: italic; margin: 1.2em 0 0; }
 @media screen and (max-width: 799px) {
@@ -306,10 +321,13 @@ div.tmweb-code, div.tmweb-code.hljs {
     padding: 0.9em 1.1em;
     margin: 1em 0;
     overflow-x: auto;
-    font-size: 0.82rem;
+    font-size: 0.72rem;
     line-height: 1.6;
     font-variant-numeric: normal;
 }
+/* Code as it is typed: no ligatures of the monospaced face (-> stays two
+   characters). */
+pre, code, tt, .hljs { font-variant-ligatures: none; font-feature-settings: "calt" 0, "liga" 0; }
 div.tmweb-code pre.verbatim { margin: 0; padding: 0; font-size: inherit; }
 tt.verbatim {
     font-size: 0.88em;

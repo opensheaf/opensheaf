@@ -15,6 +15,22 @@
   }
   try { apply(sessionStorage.getItem(key)); } catch (_) { apply(null); }
 
+  /* The type tester (resources/type-tester.js) is off. A page opened with
+     ?tester turns it on for the browsing session, ?tester=off turns it off;
+     only then is it loaded, from beside this script. */
+  try {
+    var asked = /[?&]tester(?:=([^&#]*))?/.exec(location.search);
+    if (asked) {
+      if (asked[1] === 'off') sessionStorage.removeItem('opensheaf-tester');
+      else sessionStorage.setItem('opensheaf-tester', 'on');
+    }
+    if (sessionStorage.getItem('opensheaf-tester') === 'on' && document.currentScript) {
+      var tester = document.createElement('script');
+      tester.src = document.currentScript.src.replace(/[^/]*$/, '') + 'type-tester.js';
+      document.head.appendChild(tester);
+    }
+  } catch (_) { /* no storage: no tester */ }
+
   function current() {
     var set = root.getAttribute('data-theme');
     if (set === 'light' || set === 'dark') return set;

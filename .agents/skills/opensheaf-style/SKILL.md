@@ -1,6 +1,6 @@
 ---
 name: opensheaf-style
-description: The look and brand of the OpenSheaf site and documents, and the design language shared by every OpenSheaf page on the web (the site, the Explorer, the pages of an archive, the woven literate programs). Use before changing page layout, the hero, typography, colours, the logo or other brand assets, or the build of the pages.
+description: The look and brand of the OpenSheaf site and documents, and the design language shared by every OpenSheaf page on the web (the site, the Explorer, the pages of an archive). Use before changing page layout, the hero, typography, colours, the logo or other brand assets, or the build of the pages.
 ---
 
 # OpenSheaf style
@@ -48,16 +48,18 @@ well-set mathematical text.
    generous leading, a lot of air. Space, not rules or boxes, sets things
    apart.
 2. **Sites and documents.** The sites (this one, `opensheaf.org`, and the
-   Explorer) are set in a sans-serif, Geist: text, titles, values. The
-   documents (the default pages of an archive, the woven literate
-   programs) are read in a mathematical serif, CMU Serif, the Computer
-   Modern of TeX and TeXmacs: text, titles, authors, abstracts. Everywhere
-   the apparatus around the text (navigation, labels, tags, table headers,
-   dates and facts, controls, footers) is in a small quiet Geist, and
-   literal names, identifiers and digests in a monospace (Source Code
-   Pro).
-3. **No colour.** Hierarchy comes from size, space and italics, not from
-   weight or hue: headings are in the regular weight of the text; links
+   Explorer) are set in a sans-serif, IBM Plex Sans: text, titles, values.
+   The documents (the default pages of an archive) are read in a
+   mathematical serif, CMU Serif, the Computer Modern of TeX and TeXmacs:
+   text, titles, authors, abstracts. Everywhere the apparatus around the
+   text (navigation, labels, tags, table headers, dates and facts,
+   controls, footers) is in the small quiet sans of the site, and literal
+   names, identifiers and digests in a monospace (JetBrains Mono, without
+   its ligatures). The Explorer and the pages of an archive still use
+   Geist and Source Code Pro, from before this choice; they follow it
+   when they are next changed.
+3. **No colour.** Hierarchy comes from size, space and weight, not from
+   hue: headings are in bold; links
    are in ink with a thin grey underline. Three quiet tones only say a
    state, always with a text label: green for verified or current, red for
    errors and withdrawals, amber for warnings.
@@ -67,21 +69,21 @@ well-set mathematical text.
 
 ### Where it lives
 
-Four stylesheets carry it; a change of the language is made in all four,
-and here:
+Three stylesheets carry it; a change of the language is made in all three,
+and here. The woven literate programs (`opensheaf/literate`) are not part
+of it: they are pages of their own, with a look of their own.
 
 | Pages | Stylesheet | Source to edit |
 |---|---|---|
 | this site | `resources/opensheaf.css` | the file itself |
 | the Explorer (`opensheaf/explorer`) | `style.css` | `literate/31-style.md` |
 | the default pages of an archive (`opensheaf/opensheaf-py`) | `templates/style.css` | `literate/31-templates.md`; then copied to `archive-template` and `collection-template` (`templates/`, `style.css`) |
-| the woven literate programs (`opensheaf/literate`) | `weave.css` | `literate/20-weave.md` |
 
 ### The pieces
 
 - **Tokens.** The block of custom properties `--os-*` at the top of
   `resources/opensheaf.css` (light, dark, print) is the same, to the letter,
-  in the four stylesheets: copy it whole, never one value. Styles use the
+  in the three stylesheets: copy it whole, never one value. Styles use the
   tokens, not colours of their own.
 - **Palette.** Light: paper `#f9f8f5`, surface (tinted blocks) `#f1efea`,
   hairlines `#dedbd3`, ink `#171716`, secondary text `#6a6861`
@@ -92,17 +94,17 @@ and here:
   `#f6e4e0`, `--os-warn` `#7d5200` on `#f5ecd6` (dark: `#93cfa1` on
   `#182a23`, `#eda59c` on `#342025`, `#e7c277` on `#2d281c`). Print: black
   on white. No other colours.
-- **Type.** On the sites, text in Geist at 17px (about 16px in the
-  Explorer and on a phone); in the documents, in CMU Serif at 20px (18px
-  on a phone). Leading 1.6, lining numerals, in a column of about 42rem
-  on this site (46rem in the Explorer, for its tables) and 36rem in the
-  documents. Headings in the regular weight: the
-  title of a page 2.4 to 2.5rem, tight, centred like the title of a paper,
-  with authors (italics) and first facts centred below it; sections
-  1.5rem; subsections in italics, a little larger than the text. Bold
-  (weight 600) only for run-in labels. A term where it is defined
+- **Type.** On this site, text in IBM Plex Sans at 16.5px (16px on a
+  phone), in a column of about 47rem (`max-width` 51rem with its
+  padding); code in JetBrains Mono at 0.72rem. In the Explorer, about
+  16px in a column of 46rem, for its tables; in the documents, CMU Serif
+  at 20px (18px on a phone) in a column of 36rem. Leading 1.6, lining
+  numerals. Headings in bold (700): the title of a page 2.55rem, tight,
+  centred like the title of a paper, with authors (italics) and first
+  facts centred below it; sections 1.35rem; subsections in italics, a
+  little larger than the text. Run-in labels in a semibold (600). A term where it is defined
   (`<dfn>`) in italics.
-- **Apparatus.** Geist at 0.6 to 0.8rem, in the muted grey; labels
+- **Apparatus.** The sans at 0.6 to 0.8rem, in the muted grey; labels
   above a title and table headers in capitals, letter-spaced.
 - **Masthead.** The same on every page: the symbol and the name on the
   left, in the face of the text; the pages on the right, in the small sans, grey, the
@@ -141,8 +143,8 @@ and here:
   and sets the first link as the name; `resources/theme.js` marks the page
   being read.
 - The PDF follows the same look within TeXmacs: ink and paper of the
-  tokens, headings in the regular weight, defined terms in italics
-  (`notes-meta.ts`).
+  tokens, defined terms in italics (`notes-meta.ts`); its headings are
+  still in the regular weight and its fonts those of the `notes` style.
 
 ## Hero
 
@@ -168,15 +170,21 @@ and here:
 
 - Lettering: outlined from Geist Serif Regular (SIL OFL,
   `GeistSerif-LICENSE.txt`); no font file is loaded for it.
-- Web pages: Geist (SIL OFL), two variable WOFF2 files in
-  `resources/fonts/geist/`, for the sites and for the apparatus of every
-  page; CMU Serif (SIL OFL), four WOFF2 files in `resources/fonts/cmu/`,
-  for the documents; Source Code Pro for code, from
-  `resources/fonts/source/`. Their READMEs say how the files were made
+- Web pages: IBM Plex Sans (SIL OFL), two variable WOFF2 files in
+  `resources/fonts/plex/`, for this site; JetBrains Mono (SIL OFL), two
+  variable WOFF2 files in `resources/fonts/jetbrains/`, for its code;
+  CMU Serif (SIL OFL), four WOFF2 files in `resources/fonts/cmu/`, for
+  the documents; Geist (SIL OFL) in `resources/fonts/geist/` and Source
+  Code Pro in `resources/fonts/source/`, still used by the other pages.
+  Their READMEs say where the files come from and how they were made
   (converted, not subset: CMU reserves its name). The Explorer keeps
-  copies of Geist in its `fonts/` (its content security policy takes
-  nothing from elsewhere); the default pages of an archive and the woven
-  literate programs load CMU Serif and Geist from `opensheaf.org`, and
-  fall back on the faces of the system.
+  copies of its faces in its `fonts/` (its content security policy takes
+  nothing from elsewhere); the default pages of an archive load theirs
+  from `opensheaf.org`, and fall back on the faces of the system.
+- The type tester, `resources/type-tester.js`, is off. Opening a page with
+  `?tester` turns it on for the tab (`?tester=off` turns it off): a panel
+  to try other faces, sizes, heading weights and colours on the pages,
+  and to copy the settings tried. `resources/theme.js` loads it; it
+  changes nothing for other readers.
 - TeXmacs documents and PDF: the fonts of the `notes` style.
 - New fonts or images need their licence and credit in the brand README.
