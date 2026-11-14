@@ -8,9 +8,12 @@
 
    - a page is a sheet of paper: warm white, black ink, one narrow column,
      generous leading, a lot of air;
-   - three voices: a serif (EB Garamond) for everything that is read; a small
-     quiet sans-serif for the apparatus around it (navigation, labels, tags,
-     table headers, controls); a monospace for literal names;
+   - two kinds of page: the sites (this one, the Explorer) are set in a
+     sans-serif (Geist); the documents (the pages of an archive, the woven
+     literate programs) are read in a mathematical serif (CMU Serif, the
+     Computer Modern of TeXmacs and TeX), with the small Geist of the
+     apparatus around it (navigation, labels, tags, table headers,
+     controls); a monospace for literal names everywhere;
    - no colour: hierarchy comes from size, space and italics, not from weight
      or hue. Three quiet tones only say a state (verified, failed, warning);
    - hairlines and tints, no frames, no shadows. */
@@ -31,8 +34,8 @@
     --os-bad-bg: #f6e4e0;
     --os-warn: #7d5200;
     --os-warn-bg: #f5ecd6;
-    --os-serif: "EB Garamond", Garamond, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-    --os-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --os-serif: "CMU Serif", "Latin Modern Roman", "Computer Modern", "Times New Roman", serif;
+    --os-sans: Geist, ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
     --os-mono: "Source Code Pro", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
 @media (prefers-color-scheme: dark) {
@@ -85,28 +88,31 @@
     }
 }
 
-/* 2. The text face, served from this site (resources/fonts/garamond/). */
+/* 2. The face of the site, Geist, served from here (resources/fonts/geist/).
+   The serif of the documents (resources/fonts/cmu/) is served from here
+   too, for the pages of archives and the woven programs; the site does not
+   use it. */
 @font-face {
-    font-family: "EB Garamond";
+    font-family: Geist;
     font-style: normal;
-    font-weight: 400 800;
+    font-weight: 100 900;
     font-display: swap;
-    src: url("fonts/garamond/EBGaramond-Roman.woff2") format("woff2");
+    src: url("fonts/geist/Geist-Roman.woff2") format("woff2");
 }
 @font-face {
-    font-family: "EB Garamond";
+    font-family: Geist;
     font-style: italic;
-    font-weight: 400 800;
+    font-weight: 100 900;
     font-display: swap;
-    src: url("fonts/garamond/EBGaramond-Italic.woff2") format("woff2");
+    src: url("fonts/geist/Geist-Italic.woff2") format("woff2");
 }
 
 /* 3. The variables of the base stylesheets, set from the tokens (:root
    twice, to come after the dark theme of theme.css). !important in print,
    where theme.css sets its own with it. */
 :root:root, :root[data-theme] {
-    --main-family: var(--os-serif);
-    --title-family: var(--os-serif);
+    --main-family: var(--os-sans);
+    --title-family: var(--os-sans);
     --tt-family: var(--os-mono);
     --color-background: var(--os-paper);
     --color-surface: var(--os-surface);
@@ -131,9 +137,9 @@
     }
 }
 
-/* 4. The page: a column of 36rem of text at 20px, with a leading of 1.6;
+/* 4. The page: a column of 36rem of text at 17px, with a leading of 1.6;
    paragraphs are separated by space. */
-html { font-size: 20px; }
+html { font-size: 17px; }
 body {
     font-size: 1rem;
     line-height: 1.6;
@@ -145,7 +151,7 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 @media screen and (max-width: 799px) {
-    html { font-size: 18px; }
+    html { font-size: 16px; }
     body { padding: 1.2rem 1.1rem 4rem; }
 }
 p, center { padding-top: 0.4em; padding-bottom: 0.4em; }
@@ -156,7 +162,7 @@ li::marker { color: var(--os-faint); }
 ol li::marker { color: var(--os-muted); }
 :focus-visible { outline: 1.5px solid var(--os-ink); outline-offset: 3px; }
 
-/* 5. Headings: in the serif of the text, in its regular weight. The title
+/* 5. Headings: in the face of the text, in its regular weight. The title
    of a page is set large and centred, like the title of a paper; sections
    are larger than the text, subsections in italics at its size. */
 h1, h2, h3, h4, h5, h6 {
@@ -165,8 +171,8 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
     text-wrap: balance;
 }
-h1 { font-size: 2.5rem; line-height: 1.1; letter-spacing: -0.012em; text-align: center; margin: 0.3em 0 0.8em; }
-h2 { font-size: 1.5rem; margin: 2.2em 0 0.4em; }
+h1 { font-size: 2.5rem; line-height: 1.1; letter-spacing: -0.03em; text-align: center; margin: 0.3em 0 0.8em; }
+h2 { font-size: 1.5rem; letter-spacing: -0.015em; margin: 2.2em 0 0.4em; }
 h3 { font-size: 1.15rem; font-style: italic; margin: 1.7em 0 0.2em; }
 h4, h5, h6 { font-size: 1rem; font-style: italic; margin: 1.2em 0 0; }
 @media screen and (max-width: 799px) {
@@ -190,8 +196,8 @@ dfn { font-style: italic; font-weight: 400; }
 }
 
 /* 6. The masthead, the same on every OpenSheaf page: the symbol and the
-   name on the left, in the serif; the pages on the right, in the small
-   sans of the apparatus, grey, the page being read in the ink. No rule:
+   name on the left, in the face of the text; the pages on the right, in
+   the small sans of the apparatus, grey, the page being read in the ink. No rule:
    space sets it apart. It is made here from the header as TeXmacs exports
    it, a paragraph of links in brackets followed by the name of the site,
    with no markup of its own: the brackets are hidden (the paragraph has no
@@ -211,9 +217,8 @@ dfn { font-style: italic; font-weight: 400; }
     display: inline-block;
     margin-left: 1.5rem;
     font-family: var(--os-sans);
-    font-size: 0.68rem;
+    font-size: 0.8rem;
     line-height: 1.8rem;
-    letter-spacing: 0.01em;
 }
 .notes-header a::first-letter { text-transform: uppercase; }
 .notes-header a:link, .notes-header a:visited { color: var(--os-muted); text-decoration: none; }
@@ -222,9 +227,9 @@ dfn { font-style: italic; font-weight: 400; }
 .notes-header a:first-of-type {
     float: left;
     margin-left: 0;
-    font-family: var(--os-serif);
+    font-family: var(--os-sans);
     font-size: 1.1rem;
-    letter-spacing: -0.005em;
+    letter-spacing: -0.01em;
 }
 .notes-header a:first-of-type:link, .notes-header a:first-of-type:visited { color: var(--os-ink); }
 .notes-header a:first-of-type::before {
@@ -299,13 +304,13 @@ div.tmweb-code, div.tmweb-code.hljs {
     padding: 0.9em 1.1em;
     margin: 1em 0;
     overflow-x: auto;
-    font-size: 0.7rem;
+    font-size: 0.82rem;
     line-height: 1.6;
     font-variant-numeric: normal;
 }
 div.tmweb-code pre.verbatim { margin: 0; padding: 0; font-size: inherit; }
 tt.verbatim {
-    font-size: 0.76em;
+    font-size: 0.88em;
     font-variant-numeric: normal;
     background: var(--os-surface);
     border-radius: 3px;
@@ -335,9 +340,9 @@ body table td {
 body table td:last-child { padding-right: 0; }
 body table tr:first-child td {
     font-family: var(--os-sans);
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     font-weight: 600;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--os-muted);
     vertical-align: bottom;

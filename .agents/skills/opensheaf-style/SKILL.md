@@ -47,13 +47,17 @@ well-set mathematical text.
 1. **Paper and ink.** A warm white page, black ink, one narrow column,
    generous leading, a lot of air. Space, not rules or boxes, sets things
    apart.
-2. **Three voices.** A serif (EB Garamond) for everything that is read:
-   text, titles, authors, abstracts, values. A small quiet sans-serif (the
-   system's) for the apparatus around it: navigation, labels, tags, table
-   headers, dates and facts, controls, footers. A monospace (Source Code
-   Pro) for literal names, identifiers and digests.
+2. **Sites and documents.** The sites (this one, `opensheaf.org`, and the
+   Explorer) are set in a sans-serif, Geist: text, titles, values. The
+   documents (the default pages of an archive, the woven literate
+   programs) are read in a mathematical serif, CMU Serif, the Computer
+   Modern of TeX and TeXmacs: text, titles, authors, abstracts. Everywhere
+   the apparatus around the text (navigation, labels, tags, table headers,
+   dates and facts, controls, footers) is in a small quiet Geist, and
+   literal names, identifiers and digests in a monospace (Source Code
+   Pro).
 3. **No colour.** Hierarchy comes from size, space and italics, not from
-   weight or hue: headings are in the regular weight of the serif; links
+   weight or hue: headings are in the regular weight of the text; links
    are in ink with a thin grey underline. Three quiet tones only say a
    state, always with a text label: green for verified or current, red for
    errors and withdrawals, amber for warnings.
@@ -88,18 +92,19 @@ and here:
   `#f6e4e0`, `--os-warn` `#7d5200` on `#f5ecd6` (dark: `#93cfa1` on
   `#182a23`, `#eda59c` on `#342025`, `#e7c277` on `#2d281c`). Print: black
   on white. No other colours.
-- **Type.** Text in EB Garamond at 20px (18px in the Explorer and on a
-  phone), leading 1.6, lining numerals, in a column of about 36rem (46rem
-  in the Explorer, for its tables). Headings in the regular weight: the
+- **Type.** On the sites, text in Geist at 17px (about 16px in the
+  Explorer and on a phone); in the documents, in CMU Serif at 20px (18px
+  on a phone). Leading 1.6, lining numerals, in a column of about 36rem
+  (46rem in the Explorer, for its tables). Headings in the regular weight: the
   title of a page 2.4 to 2.5rem, tight, centred like the title of a paper,
   with authors (italics) and first facts centred below it; sections
   1.5rem; subsections in italics, a little larger than the text. Bold
   (weight 600) only for run-in labels. A term where it is defined
   (`<dfn>`) in italics.
-- **Apparatus.** The sans at 0.6 to 0.76rem, in the muted grey; labels
+- **Apparatus.** Geist at 0.6 to 0.8rem, in the muted grey; labels
   above a title and table headers in capitals, letter-spaced.
 - **Masthead.** The same on every page: the symbol and the name on the
-  left, in the serif; the pages on the right, in the small sans, grey, the
+  left, in the face of the text; the pages on the right, in the small sans, grey, the
   page being read in ink. No rule below it. An archive's masthead carries
   the archive's name and no OpenSheaf symbol.
 - **Links.** In the ink of the text, a 1px underline in the faint grey that
@@ -162,13 +167,15 @@ and here:
 
 - Lettering: outlined from Geist Serif Regular (SIL OFL,
   `GeistSerif-LICENSE.txt`); no font file is loaded for it.
-- Web pages: EB Garamond (SIL OFL) for text and headings, two variable
-  WOFF2 files in `resources/fonts/garamond/` (their README says how they
-  were made), loaded by the site stylesheet; Source Code Pro for code, from
-  `resources/fonts/source/`; the system's sans-serif for the apparatus.
-  The Explorer keeps copies in its `fonts/` (its content security policy
-  takes nothing from elsewhere); the default pages of an archive and the
-  woven literate programs load EB Garamond from `opensheaf.org`, and fall
-  back on a serif of the system.
+- Web pages: Geist (SIL OFL), two variable WOFF2 files in
+  `resources/fonts/geist/`, for the sites and for the apparatus of every
+  page; CMU Serif (SIL OFL), four WOFF2 files in `resources/fonts/cmu/`,
+  for the documents; Source Code Pro for code, from
+  `resources/fonts/source/`. Their READMEs say how the files were made
+  (converted, not subset: CMU reserves its name). The Explorer keeps
+  copies of Geist in its `fonts/` (its content security policy takes
+  nothing from elsewhere); the default pages of an archive and the woven
+  literate programs load CMU Serif and Geist from `opensheaf.org`, and
+  fall back on the faces of the system.
 - TeXmacs documents and PDF: the fonts of the `notes` style.
 - New fonts or images need their licence and credit in the brand README.
