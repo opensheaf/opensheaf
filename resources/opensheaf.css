@@ -1,200 +1,181 @@
-/* OpenSheaf site styles, on top of the website's notes-base.css and
-   theme.css (whose variables they use). */
+/* The OpenSheaf design language on the site, on top of the website's
+   notes-base.css and theme.css (whose variables it sets).
 
-/* The look of notes-meta.ts on the web, where the HTML export leaves fonts
-   and colours to the stylesheets: the base stylesheet's column, margins and
-   spacing, headings in the serif of the text in bold (font sizes are
-   those of the base stylesheet), and a palette
-   on a single hue (blue, 213 degrees): shades from a lightly tinted paper to
-   deep ink, for text, headings, links, bullets and code. Every pair meets WCAG AA (text
-   about 13:1, links about 8:1, secondary text at least 5:1). */
-h1, h2, h3, h4, h5, h6 { font-weight: 700; }
+   One language for every OpenSheaf page on the web: this site, the Explorer,
+   the default pages of an archive (opensheaf-py) and the woven literate
+   programs. It is described in .agents/skills/opensheaf-style/SKILL.md;
+   change it there and in the four stylesheets together. In short:
 
+   - a page is a sheet of paper: warm white, black ink, one narrow column,
+     generous leading, a lot of air;
+   - three voices: a serif (EB Garamond) for everything that is read; a small
+     quiet sans-serif for the apparatus around it (navigation, labels, tags,
+     table headers, controls); a monospace for literal names;
+   - no colour: hierarchy comes from size, space and italics, not from weight
+     or hue. Three quiet tones only say a state (verified, failed, warning);
+   - hairlines and tints, no frames, no shadows. */
+
+/* 1. Tokens. This block is the same, to the letter, in the four
+   stylesheets. Text is about 16:1 on the paper, secondary text 5:1. */
 :root {
-    --title-family: var(--main-family);
-    --color-background: #f8fafc;
-    --color-surface: #edf1f5;
-    --color-border: #cfd8e2;
-    --color-text: #212a36;
-    --color-title: #1c3554;
-    --color-link: #265082;
-    --os-visited: #476385;
-    --color-muted: #5e6a78;
-    --color-secondary: #5e6a78;
-    --os-code-bg: #eef2f6;
-    --os-code-border: #cfd8e2;
-    --os-heading: #1c3554;
-    --os-heading-2: #2d4e76;
-    --os-marker: #4375b1;
-    --os-rule: #5e88ba;
-    --os-chip: #e9eef3;
+    color-scheme: light;
+    --os-paper: #f9f8f5;
+    --os-surface: #f1efea;
+    --os-rule: #dedbd3;
+    --os-ink: #171716;
+    --os-muted: #6a6861;
+    --os-faint: #a09d95;
+    --os-ok: #2c6a3e;
+    --os-ok-bg: #e6efe4;
+    --os-bad: #9d2b22;
+    --os-bad-bg: #f6e4e0;
+    --os-warn: #7d5200;
+    --os-warn-bg: #f5ecd6;
+    --os-serif: "EB Garamond", Garamond, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --os-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --os-mono: "Source Code Pro", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-        --color-background: #151b23;
-        --color-surface: #1f2730;
-        --color-border: #343f4b;
-        --color-text: #d4dbe2;
-        --color-title: #b8cfea;
-        --color-link: #96bbe9;
-        --os-visited: #9fb5d1;
-        --color-muted: #929daa;
-        --color-secondary: #929daa;
-        --os-code-bg: #1e252f;
-        --os-code-border: #343f4b;
-        --os-heading: #b8cfea;
-        --os-heading-2: #a3bcdc;
-        --os-marker: #79a4d8;
-        --os-rule: #5480b6;
-        --os-chip: #212933;
+        color-scheme: dark;
+        --os-paper: #12141a;
+        --os-surface: #1b1e25;
+        --os-rule: #31353e;
+        --os-ink: #e6e7ea;
+        --os-muted: #9a9ea8;
+        --os-faint: #646975;
+        --os-ok: #93cfa1;
+        --os-ok-bg: #182a23;
+        --os-bad: #eda59c;
+        --os-bad-bg: #342025;
+        --os-warn: #e7c277;
+        --os-warn-bg: #2d281c;
     }
 }
 :root[data-theme="dark"] {
-    --color-background: #151b23;
-    --color-surface: #1f2730;
-    --color-border: #343f4b;
-    --color-text: #d4dbe2;
-    --color-title: #b8cfea;
-    --color-link: #96bbe9;
-    --os-visited: #9fb5d1;
-    --color-muted: #929daa;
-    --color-secondary: #929daa;
-    --os-code-bg: #1e252f;
-    --os-code-border: #343f4b;
-    --os-heading: #b8cfea;
-    --os-heading-2: #a3bcdc;
-    --os-marker: #79a4d8;
-    --os-rule: #5480b6;
-    --os-chip: #212933;
+    color-scheme: dark;
+    --os-paper: #12141a;
+    --os-surface: #1b1e25;
+    --os-rule: #31353e;
+    --os-ink: #e6e7ea;
+    --os-muted: #9a9ea8;
+    --os-faint: #646975;
+    --os-ok: #93cfa1;
+    --os-ok-bg: #182a23;
+    --os-bad: #eda59c;
+    --os-bad-bg: #342025;
+    --os-warn: #e7c277;
+    --os-warn-bg: #2d281c;
 }
 @media print {
     :root, :root[data-theme] {
-        --color-background: #fff !important;
-        --color-text: #000 !important;
-        --color-title: #000 !important;
-        --color-link: #000 !important;
-        --os-visited: #000 !important;
-        --color-muted: #333 !important;
-        --color-secondary: #333 !important;
-        --os-code-bg: #fff !important;
-        --os-code-border: #999 !important;
-        --os-heading: #000 !important;
-        --os-heading-2: #000 !important;
-        --os-marker: #000 !important;
-        --os-rule: #666 !important;
-        --os-chip: #fff !important;
+        color-scheme: light !important;
+        --os-paper: #fff !important;
+        --os-surface: #fff !important;
+        --os-rule: #999 !important;
+        --os-ink: #000 !important;
+        --os-muted: #333 !important;
+        --os-faint: #666 !important;
+        --os-ok: #000 !important;
+        --os-ok-bg: #fff !important;
+        --os-bad: #000 !important;
+        --os-bad-bg: #fff !important;
+        --os-warn: #000 !important;
+        --os-warn-bg: #fff !important;
     }
 }
 
-/* Code in the ink of the text; syntax colours (highlight.js, for blocks
-   with a language) in shades of the same blue, every token at least 4.5:1
-   on the code background: commands and keywords deep and bold, keys and
-   names medium, strings lighter, numbers and literals lighter still,
-   comments grey and italic. */
-pre, code, .hljs {
-    color: inherit;
-    background: transparent;
+/* 2. The text face, served from this site (resources/fonts/garamond/). */
+@font-face {
+    font-family: "EB Garamond";
+    font-style: normal;
+    font-weight: 400 800;
+    font-display: swap;
+    src: url("fonts/garamond/EBGaramond-Roman.woff2") format("woff2");
 }
-:root {
-    --os-hl-command: #1c3554;
-    --os-hl-key: #2d4e76;
-    --os-hl-string: #2f5f95;
-    --os-hl-number: #3c6aa3;
-    --os-hl-comment: #5e6a78;
-}
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-        --os-hl-command: #b8cfea;
-        --os-hl-key: #a3bcdc;
-        --os-hl-string: #96bbe9;
-        --os-hl-number: #79a4d8;
-        --os-hl-comment: #929daa;
-    }
-}
-:root[data-theme="dark"] {
-    --os-hl-command: #b8cfea;
-    --os-hl-key: #a3bcdc;
-    --os-hl-string: #96bbe9;
-    --os-hl-number: #79a4d8;
-    --os-hl-comment: #929daa;
-}
-@media print {
-    :root, :root[data-theme] {
-        --os-hl-command: #000 !important;
-        --os-hl-key: #000 !important;
-        --os-hl-string: #000 !important;
-        --os-hl-number: #000 !important;
-        --os-hl-comment: #444 !important;
-    }
-}
-.hljs * { color: inherit; background: transparent; }
-.hljs .hljs-built_in, .hljs .hljs-keyword, .hljs .hljs-selector-tag,
-.hljs .hljs-section, .hljs .hljs-title {
-    color: var(--os-hl-command);
-    font-weight: 600;
-}
-.hljs .hljs-attr, .hljs .hljs-name, .hljs .hljs-variable,
-.hljs .hljs-template-variable, .hljs .hljs-params {
-    color: var(--os-hl-key);
-}
-.hljs .hljs-string, .hljs .hljs-subst, .hljs .hljs-regexp {
-    color: var(--os-hl-string);
-}
-.hljs .hljs-number, .hljs .hljs-literal, .hljs .hljs-symbol,
-.hljs .hljs-bullet, .hljs .hljs-meta {
-    color: var(--os-hl-number);
-}
-.hljs .hljs-comment, .hljs .hljs-quote {
-    color: var(--os-hl-comment);
+@font-face {
+    font-family: "EB Garamond";
     font-style: italic;
+    font-weight: 400 800;
+    font-display: swap;
+    src: url("fonts/garamond/EBGaramond-Italic.woff2") format("woff2");
 }
 
-/* The logo is drawn in black on a transparent background: no image
-   background (the site gives images a white one on the dark theme), and
-   inverted on the dark theme. */
-img[src$="opensheaf-logo.svg"] {
-    background-color: transparent !important;
+/* 3. The variables of the base stylesheets, set from the tokens (:root
+   twice, to come after the dark theme of theme.css). !important in print,
+   where theme.css sets its own with it. */
+:root:root, :root[data-theme] {
+    --main-family: var(--os-serif);
+    --title-family: var(--os-serif);
+    --tt-family: var(--os-mono);
+    --color-background: var(--os-paper);
+    --color-surface: var(--os-surface);
+    --color-border: var(--os-rule);
+    --color-text: var(--os-ink);
+    --color-title: var(--os-ink);
+    --color-link: var(--os-ink);
+    --color-muted: var(--os-muted);
+    --color-secondary: var(--os-muted);
+    --image-background: transparent;
 }
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) img[src$="opensheaf-logo.svg"] {
-        filter: invert(1);
+@media print {
+    :root, :root[data-theme] {
+        --color-background: var(--os-paper) !important;
+        --color-surface: var(--os-surface) !important;
+        --color-border: var(--os-rule) !important;
+        --color-text: var(--os-ink) !important;
+        --color-title: var(--os-ink) !important;
+        --color-link: var(--os-ink) !important;
+        --color-muted: var(--os-muted) !important;
+        --color-secondary: var(--os-muted) !important;
     }
 }
-:root[data-theme="dark"] img[src$="opensheaf-logo.svg"] {
-    filter: invert(1);
-}
 
-/* Links in the accent colour, and underlined (the base stylesheet only
-   underlines them on hover), so that they never rely on colour alone. */
-a:link, a:visited {
-    color: var(--color-link);
-    text-decoration: underline;
-    text-decoration-thickness: 0.06em;
-    text-underline-offset: 0.15em;
-    text-decoration-color: color-mix(in srgb, currentColor 55%, transparent);
+/* 4. The page: a column of 36rem of text at 20px, with a leading of 1.6;
+   paragraphs are separated by space. */
+html { font-size: 20px; }
+body {
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 40rem;
+    padding: 2rem 2rem 6rem;
+    font-kerning: normal;
+    font-variant-numeric: lining-nums;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
-a:visited {
-    color: var(--os-visited);
+@media screen and (max-width: 799px) {
+    html { font-size: 18px; }
+    body { padding: 1.2rem 1.1rem 4rem; }
 }
-a:hover, a:focus {
-    text-decoration-color: currentColor;
-}
+p, center { padding-top: 0.4em; padding-bottom: 0.4em; }
+ul, ol { padding-top: 0.3em; padding-bottom: 0.3em; }
+ul { color: inherit; list-style: disc; padding-inline-start: 1.2em; }
+li p { padding-top: 0.2em; padding-bottom: 0.2em; }
+li::marker { color: var(--os-faint); }
+ol li::marker { color: var(--os-muted); }
+:focus-visible { outline: 1.5px solid var(--os-ink); outline-offset: 3px; }
 
-/* Code blocks (the specification's JSON examples) stand apart from the
-   text on a slightly cooler paper with a thin rule. TeXmacs wraps them in
-   div.tmweb-code, which highlight.js also styles. */
-div.tmweb-code, div.tmweb-code.hljs {
-    background: var(--os-code-bg);
-    border: 1px solid var(--os-code-border);
-    border-radius: 4px;
-    padding: 0.6em 0.9em;
-    margin: 0.6em 0;
-    overflow-x: auto;
+/* 5. Headings: in the serif of the text, in its regular weight. The title
+   of a page is set large and centred, like the title of a paper; sections
+   are larger than the text, subsections in italics at its size. */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--os-ink);
+    font-weight: 400;
+    line-height: 1.2;
+    text-wrap: balance;
 }
-div.tmweb-code pre.verbatim {
-    margin: 0;
-    padding: 0;
+h1 { font-size: 2.5rem; line-height: 1.1; letter-spacing: -0.012em; text-align: center; margin: 0.3em 0 0.8em; }
+h2 { font-size: 1.5rem; margin: 2.2em 0 0.4em; }
+h3 { font-size: 1.15rem; font-style: italic; margin: 1.7em 0 0.2em; }
+h4, h5, h6 { font-size: 1rem; font-style: italic; margin: 1.2em 0 0; }
+@media screen and (max-width: 799px) {
+    h1 { font-size: 2rem; }
 }
+/* Run-in labels ("Numbering.") in a slightly stronger weight; a term where
+   it is defined in italics, as in a mathematical text. */
+strong, b { color: inherit; font-weight: 600; }
+dfn { font-style: italic; font-weight: 400; }
 
 /* A heading present for screen readers and search engines but not shown
    (the home page's title, whose visible form is the logo). */
@@ -208,101 +189,196 @@ div.tmweb-code pre.verbatim {
     white-space: nowrap;
 }
 
-/* Structure in shades of the same blue: deep for headings and the run-in
-   bold labels of the specification ("Numbering."), medium for list bullets
-   and the rule beside the abstract. Links keep their own
-   navy and their underline. */
-h1, h2 { color: var(--os-heading); }
-h3, h4, h5, h6 { color: var(--os-heading-2); }
-strong, b { color: var(--os-heading); font-weight: 600; }
-a strong, a b { color: inherit; }
-dfn { font-style: normal; color: var(--os-heading); font-weight: 600; }
-a dfn { color: inherit; }
-li::marker { color: var(--os-marker); }
-.notes-abstract {
-    border-left: 3px solid var(--os-rule);
-    padding-left: 0.9em;
-    margin: 1em 0 1.4em;
-}
-/* Inline verbatim (file names, JSON fields) on a faint chip. */
-tt.verbatim {
-    background: var(--os-chip);
-    border-radius: 3px;
-    padding: 0 0.25em;
-}
-div.tmweb-code tt.verbatim, pre tt.verbatim { background: transparent; padding: 0; }
-
-/* The theme button (resources/theme.js): the half-lit circle of the base
-   theme, as one button that switches between light and dark. */
-.theme-control .theme-toggle {
-    display: grid;
-    place-items: center;
-    width: 28px;
-    height: 28px;
+/* 6. The masthead, the same on every OpenSheaf page: the symbol and the
+   name on the left, in the serif; the pages on the right, in the small
+   sans of the apparatus, grey, the page being read in the ink. No rule:
+   space sets it apart. It is made here from the header as TeXmacs exports
+   it, a paragraph of links in brackets followed by the name of the site,
+   with no markup of its own: the brackets are hidden (the paragraph has no
+   font size, the links have theirs), the first link is the name, set to
+   the left, and the others stand on the right. The
+   symbol is a mask, so that it takes the ink of both themes. */
+.notes-header { margin: 0 0 3.5rem; padding: 0; }
+.notes-header p {
     padding: 0;
-    border: 0;
-    border-radius: 50%;
-    background: transparent;
-    color: var(--color-muted);
-    cursor: pointer;
+    font-size: 0;
+    line-height: 1.8rem;
+    text-align: right;
 }
-.theme-control .theme-toggle::before {
+.notes-header p::after { content: ""; display: block; clear: both; }
+.notes-header .notes-header-name { display: none; }
+.notes-header a {
+    display: inline-block;
+    margin-left: 1.5rem;
+    font-family: var(--os-sans);
+    font-size: 0.68rem;
+    line-height: 1.8rem;
+    letter-spacing: 0.01em;
+}
+.notes-header a::first-letter { text-transform: uppercase; }
+.notes-header a:link, .notes-header a:visited { color: var(--os-muted); text-decoration: none; }
+.notes-header a:hover, .notes-header a:focus,
+.notes-header a[aria-current="page"] { color: var(--os-ink); }
+.notes-header a:first-of-type {
+    float: left;
+    margin-left: 0;
+    font-family: var(--os-serif);
+    font-size: 1.1rem;
+    letter-spacing: -0.005em;
+}
+.notes-header a:first-of-type:link, .notes-header a:first-of-type:visited { color: var(--os-ink); }
+.notes-header a:first-of-type::before {
     content: "";
-    width: 14px;
-    height: 14px;
-    border: 1.5px solid currentColor;
-    border-radius: 50%;
-    background: linear-gradient(90deg, currentColor 50%, transparent 50%);
+    display: inline-block;
+    width: 1.05em;
+    height: 1.16em;
+    margin-right: 0.4em;
+    vertical-align: -0.2em;
+    background-color: currentColor;
+    -webkit-mask: url("brand/opensheaf-symbol.svg") center / contain no-repeat;
+    mask: url("brand/opensheaf-symbol.svg") center / contain no-repeat;
 }
-.theme-control .theme-toggle:hover {
-    color: var(--color-text);
-    background: var(--color-surface);
+/* Room for the theme button, which floats over the right end of the
+   masthead on narrow windows. */
+@media screen and (max-width: 960px) {
+    .notes-header { padding-right: 2.2rem; }
 }
-.theme-control .theme-toggle:focus-visible {
-    outline: 2px solid var(--color-link);
-    outline-offset: 2px;
-}
-
-/* Less room above the page header: the base stylesheet pads the page by
-   3em at the top. */
-@media screen {
-    body { padding-top: 2em; }
+@media print {
+    .notes-header a:not(:first-of-type) { display: none; }
 }
 
-/* The theme button floats at the top right corner of the window, above the
-   page, and stays there while scrolling; it takes no room in the page. On
-   the paper of the page, so that it stays legible over the text below. */
+/* 7. Links in the ink of the text, with a thin grey underline that turns
+   to ink under the pointer: they never rely on colour. */
+a:link, a:visited {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    text-decoration-color: var(--os-faint);
+}
+a:hover, a:focus { color: inherit; text-decoration-color: currentColor; }
+
+/* The logo is drawn in black on a transparent background: inverted on the
+   dark theme. */
+img[src$="opensheaf-logo.svg"] { background-color: transparent !important; }
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) img[src$="opensheaf-logo.svg"] { filter: invert(1); }
+}
+:root[data-theme="dark"] img[src$="opensheaf-logo.svg"] { filter: invert(1); }
+
+/* 8. The abstract, in italics under the title. Notes and warnings
+   (GitHub's > [!WARNING] in the Markdown sources) on the surface, without
+   a frame; the label that opens them ("Warning.") is a run-in label, in
+   the tone of the warning. */
+.notes-abstract {
+    font-size: 1rem;
+    font-style: italic;
+    margin: 0 0 2.2em;
+}
+.notes-abstract dfn, .notes-abstract em { font-style: normal; }
+div.os-alert {
+    background: var(--os-surface);
+    border-radius: 4px;
+    padding: 0.8em 1.1em;
+    margin: 1.6em 0;
+}
+div.os-alert .os-alert-label { font-weight: 600; color: var(--os-warn); }
+div.os-alert.os-note .os-alert-label { color: inherit; }
+
+/* 9. Code on the surface, without a frame (TeXmacs wraps blocks in
+   div.tmweb-code, which highlight.js also styles); inline verbatim (file
+   names, JSON fields) on the same tint. No syntax colours: keywords a
+   little stronger, values and comments in grey. */
+pre, code, .hljs {
+    color: inherit;
+    background: transparent;
+}
+div.tmweb-code, div.tmweb-code.hljs {
+    background: var(--os-surface);
+    border-radius: 4px;
+    padding: 0.9em 1.1em;
+    margin: 1em 0;
+    overflow-x: auto;
+    font-size: 0.7rem;
+    line-height: 1.6;
+    font-variant-numeric: normal;
+}
+div.tmweb-code pre.verbatim { margin: 0; padding: 0; font-size: inherit; }
+tt.verbatim {
+    font-size: 0.76em;
+    font-variant-numeric: normal;
+    background: var(--os-surface);
+    border-radius: 3px;
+    padding: 0.1em 0.3em;
+}
+div.tmweb-code tt.verbatim, pre tt.verbatim { background: transparent; padding: 0; font-size: inherit; }
+.hljs * { color: inherit; background: transparent; font-weight: inherit; font-style: inherit; }
+.hljs .hljs-built_in, .hljs .hljs-keyword, .hljs .hljs-selector-tag,
+.hljs .hljs-section, .hljs .hljs-title { font-weight: 600; }
+.hljs .hljs-string, .hljs .hljs-subst, .hljs .hljs-regexp, .hljs .hljs-number,
+.hljs .hljs-literal, .hljs .hljs-symbol, .hljs .hljs-bullet, .hljs .hljs-meta {
+    color: var(--os-muted);
+}
+.hljs .hljs-comment, .hljs .hljs-quote { color: var(--os-muted); font-style: italic; }
+
+/* 10. Tables from the Markdown sources, ruled as in a book: a rule in ink
+   at the head and at the foot, hairlines between the rows, no vertical
+   rules; the header (the first row) in the small capitals of the
+   apparatus. TeXmacs writes a full grid on the cells, hence !important. */
+body table { font-size: 0.9rem; line-height: 1.45; margin: 0.8em 0; }
+body table td {
+    padding: 0.55em 1.2em 0.55em 0;
+    border: 0 !important;
+    border-bottom: 1px solid var(--os-rule) !important;
+    vertical-align: top;
+}
+body table td:last-child { padding-right: 0; }
+body table tr:first-child td {
+    font-family: var(--os-sans);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--os-muted);
+    vertical-align: bottom;
+    border-top: 1px solid var(--os-ink) !important;
+    border-bottom: 1px solid var(--os-ink) !important;
+}
+body table tr:last-child td { border-bottom: 1px solid var(--os-ink) !important; }
+
+/* 11. The theme button (resources/theme.js): a half-lit circle, one button
+   that switches between light and dark. It floats at the top right corner
+   of the window, above the page, and stays there while scrolling; on the
+   paper of the page, so that it stays legible over the text below. */
 .theme-control {
     position: fixed;
-    top: 0.6rem;
+    top: 0.7rem;
     right: 0.8rem;
     z-index: 10;
     margin: 0;
 }
 .theme-control .theme-toggle {
-    width: 34px;
-    height: 34px;
-    background: var(--color-background);
-    border: 1px solid var(--color-border);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--os-paper);
+    color: var(--os-faint);
+    cursor: pointer;
 }
-
-/* Alert boxes (GitHub's > [!WARNING] in the Markdown sources). */
-div.os-alert {
-  border: 1px solid #e3b55f; border-left: 5px solid #d08a1c;
-  background: #fff7e8; color: #3a2a0f;
-  padding: 0.7em 1em; margin: 1.2em 0; border-radius: 4px;
+.theme-control .theme-toggle::before {
+    content: "";
+    width: 13px;
+    height: 13px;
+    border: 1.5px solid currentColor;
+    border-radius: 50%;
+    background: linear-gradient(90deg, currentColor 50%, transparent 50%);
 }
-div.os-alert.os-note { border-color: #9cc0e8; border-left-color: #2f6db5; background: #eef5fd; color: #1c3554; }
-div.os-alert .os-alert-label { font-weight: bold; color: #8a4b00; }
-div.os-alert.os-note .os-alert-label { color: #1c3554; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) div.os-alert { background: #2d2412; color: #f1e3c4; border-color: #8a6420; border-left-color: #d08a1c; }
-  :root:not([data-theme="light"]) div.os-alert .os-alert-label { color: #f0b45a; }
+.theme-control .theme-toggle:hover { color: var(--os-ink); }
+.theme-control .theme-toggle:focus-visible {
+    outline: 1.5px solid var(--os-ink);
+    outline-offset: 2px;
 }
-:root[data-theme="dark"] div.os-alert { background: #2d2412; color: #f1e3c4; border-color: #8a6420; border-left-color: #d08a1c; }
-:root[data-theme="dark"] div.os-alert .os-alert-label { color: #f0b45a; }
-
-/* Tables from the Markdown sources: the first row is the header. */
-.tmweb-body table tr:first-child td, body table tr:first-child td { font-weight: bold; }
-body table td { padding: 0.3em 0.5em; }

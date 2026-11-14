@@ -47,6 +47,18 @@
     document.body.insertBefore(control, document.body.firstChild);
   });
 
+  /* The masthead marks the page being read. */
+  document.addEventListener('DOMContentLoaded', function () {
+    var here = location.pathname.replace(/\/$/, '/index.html').split('/').pop();
+    var links = document.querySelectorAll('.notes-header a');
+    Array.prototype.forEach.call(links, function (link) {
+      var href = link.getAttribute('href') || '';
+      if (!/^[a-z]+:/i.test(href) && href.split('#')[0] === here) {
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+  });
+
   /* Syntax highlighting: the pages are converted from Markdown, where a code
      block's language (```sh, ```json) becomes a wrapper with the class
      language-<name>; the site's highlighter (notes-base.js, highlight.js)

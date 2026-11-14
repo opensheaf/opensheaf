@@ -35,26 +35,26 @@
 
   <\active*>
     <\src-comment>
-      The OpenSheaf look: the serif of the text for the headings, in bold, and a palette on a single hue: shades of
-      blue from a tinted paper to deep ink.
+      The OpenSheaf look: black ink on a warm white paper, without colour;
+      headings in the serif of the text, in its regular weight.
     </src-comment>
   </active*>
 
-  <assign|notes-heading|<macro|body|<with|font-family|rm|font-series|bold|color|#1c3554|<arg|body>>>>
+  <assign|notes-heading|<macro|body|<with|font-family|rm|font-series|medium|color|#171716|<arg|body>>>>
 
-  <assign|notes-title-color|#1c3554>
+  <assign|notes-title-color|#171716>
 
-  <assign|notes-text-color|#212a36>
+  <assign|notes-text-color|#171716>
 
-  <assign|notes-background-color|#f8fafc>
+  <assign|notes-background-color|#f9f8f5>
 
-  <assign|color|#212a36>
+  <assign|color|#171716>
 
-  <assign|bg-color|#f8fafc>
+  <assign|bg-color|#f9f8f5>
 
-  <assign|locus-color|#265082>
+  <assign|locus-color|#171716>
 
-  <assign|visited-color|#476385>
+  <assign|visited-color|#171716>
 
   <\active*>
     <\src-comment>
@@ -73,8 +73,8 @@
     <with|color|<arg|ink>|<arg|body>>
   </cell>>>>>>>>
 
-  <assign|os-alert|<macro|kind|label|body|<if|<equal|<arg|kind>|note>|<os-alert-box|#2f6db5|#eef5fd|#1c3554|<with|font-series|bold|<arg|label>>
-  <arg|body>>|<os-alert-box|#d08a1c|#fff7e8|#3a2a0f|<with|font-series|bold|color|#8a4b00|<arg|label>>
+  <assign|os-alert|<macro|kind|label|body|<if|<equal|<arg|kind>|note>|<os-alert-box|#dedbd3|#f1efea|#171716|<with|font-series|bold|<arg|label>>
+  <arg|body>>|<os-alert-box|#dedbd3|#f1efea|#171716|<with|font-series|bold|color|#7d5200|<arg|label>>
   <arg|body>>>>>
 
   <assign|tmhtml-os-alert|<macro|kind|label|body|<html-div-class|os-alert
@@ -83,12 +83,12 @@
   <\active*>
     <\src-comment>
       Technical terms where they are defined (\<less\>dfn\<gtr\> in the
-      Markdown sources): in bold, like the run-in labels; exported to HTML
+      Markdown sources): in italics, as in a mathematical text; exported to HTML
       as dfn elements, styled the same way by resources/opensheaf.css.
     </src-comment>
   </active*>
 
-  <assign|dfn|<macro|body|<strong|<arg|body>>>>
+  <assign|dfn|<macro|body|<em|<arg|body>>>>
 
   <assign|html-title|OpenSheaf>
 
