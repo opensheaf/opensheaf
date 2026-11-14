@@ -59,7 +59,7 @@
 
   <section*|Why both archives and collections?><label|why-both-archives-and-collections>
 
-  They answer different questions. An <strong|archive> is custody and naming: one owner's storage root and discovery document, under an archive identifier. It says who keeps an object, what it is called, and where its files are. An object is named by the pair (archive identifier, object identifier), and its versions are added only by its archive, which is its single writer: a copy kept elsewhere (a mirror) stays the object of its archive and can only receive its versions. Archives do not overlap and do not nest. (A proposal, below, adds an identity that does not depend on the archive: see "Who owns an object, and what is a branch?")
+  They answer different questions. An <strong|archive> is custody and naming: one owner's storage root and discovery document, under an archive identifier. It says who keeps an object, what it is called, and where its files are. An object is named by the pair (archive identifier, object identifier), and its versions are added only by its archive, which is its single writer: a copy kept elsewhere (a mirror) stays the object of its archive and can only receive its versions. Archives do not overlap and do not nest. (Under a proposal, below, the single writer is the owner of a line, and the archive is only where the line is kept: see "Who owns an object, and what is a branch?")
 
   A <strong|collection> is a statement: a versioned list of pins, made by a curator, over objects of any archives. It says which objects, in which versions, go together: an author's papers, an issue of a journal, a reading list. Collections are objects themselves, so they can be pinned, nested and included in other collections, across archives.
 

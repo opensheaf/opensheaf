@@ -363,6 +363,13 @@ members:
     revisions: [1]                # its document version 1; after a correction, [1, 2]</pre>
       </div>
     </div>
+    <div class="os-alert os-note">
+      <font class="os-alert-label">Note.</font> Under the identity proposal (section 10.5, not
+      yet agreed), an accepted copy is a shallow branch: it keeps the document
+      version of the revision it copies (the authors' version 3, say, and 4
+      after a correction), and keeps the authors' <tt class="verbatim">object.json</tt>
+      as <tt class="verbatim">parent.object.json</tt>.
+    </div>
     <h3 id="auto-12"><a id="a-journal-that-publishes-its-own-version"></a>A journal that publishes its own version<span style="margin-left: 1em"></span></h3>
     <p>
       A journal typesets the accepted paper in its own layout, gives it a DOI,
@@ -525,13 +532,15 @@ osheaf collection sync issue-7-details --from issue-7-details.yaml</pre>
       account mirrors its companions too, or reports that their licences
       forbid it. Keeping an accepted copy of the account does the same, and
       records the relation again in the copy's own <tt class="verbatim">object.json</tt>,
-      since an accepted copy does not copy <tt class="verbatim">object.json</tt>
-      (section 10.5). Presentations show &quot;the full argument, version 3,
-      as reviewed&quot; beside the account. A selection could also treat the
-      companions, in their pinned versions, as vetted with the account;
-      whether an extension may do so is one of the questions of #28, and in
-      the core the journal pins them itself, in a selection such as <tt class="verbatim">issue-7-details</tt>.
-      Tools that do not know the extension still read, copy and verify both
+      since an accepted copy has its own <tt class="verbatim">object.json</tt> (section
+      10.5; under the identity proposal it keeps the original only as
+      evidence, in <tt class="verbatim">parent.object.json</tt>). Presentations show
+      &quot;the full argument, version 3, as reviewed&quot; beside the
+      account. A selection could also treat the companions, in their pinned
+      versions, as vetted with the account; whether an extension may do so is
+      one of the questions of #28, and in the core the journal pins them
+      itself, in a selection such as <tt class="verbatim">issue-7-details</tt>. Tools
+      that do not know the extension still read, copy and verify both
       documents by the core rules alone.
     </p>
     <p>

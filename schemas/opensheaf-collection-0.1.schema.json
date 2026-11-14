@@ -132,6 +132,14 @@
             "format": "uri",
             "$comment": "proposal (section 6.5): a named owner (archive identifier, ORCID iD, web address) or a keyed owner (did:key:, openpgp4fpr:)"
           }
+        },
+        "dependentRequired": {
+          "name": [
+            "owner"
+          ],
+          "owner": [
+            "name"
+          ]
         }
       }
     },

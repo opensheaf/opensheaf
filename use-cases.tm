@@ -267,6 +267,8 @@
   </verbatim-code>
   </html-div-class>
 
+  <os-alert|note|Note.|Under the identity proposal (section 10.5, not yet agreed), an accepted copy is a shallow branch: it keeps the document version of the revision it copies (the authors' version 3, say, and 4 after a correction), and keeps the authors' <verbatim|object.json> as <verbatim|parent.object.json>.>
+
   <subsection*|A journal that publishes its own version><label|a-journal-that-publishes-its-own-version>
 
   A journal typesets the accepted paper in its own layout, gives it a DOI, and publishes it under its licence, with the authors' agreement.
@@ -351,7 +353,7 @@
   </verbatim-code>
   </html-div-class>
 
-  Tools that know the extension follow it. Verifying the account resolves and checks the companions' pins like the pins of members. Mirroring the account mirrors its companions too, or reports that their licences forbid it. Keeping an accepted copy of the account does the same, and records the relation again in the copy's own <verbatim|object.json>, since an accepted copy does not copy <verbatim|object.json> (section 10.5). Presentations show "the full argument, version 3, as reviewed" beside the account. A selection could also treat the companions, in their pinned versions, as vetted with the account; whether an extension may do so is one of the questions of #28, and in the core the journal pins them itself, in a selection such as <verbatim|issue-7-details>. Tools that do not know the extension still read, copy and verify both documents by the core rules alone.
+  Tools that know the extension follow it. Verifying the account resolves and checks the companions' pins like the pins of members. Mirroring the account mirrors its companions too, or reports that their licences forbid it. Keeping an accepted copy of the account does the same, and records the relation again in the copy's own <verbatim|object.json>, since an accepted copy has its own <verbatim|object.json> (section 10.5; under the identity proposal it keeps the original only as evidence, in <verbatim|parent.object.json>). Presentations show "the full argument, version 3, as reviewed" beside the account. A selection could also treat the companions, in their pinned versions, as vetted with the account; whether an extension may do so is one of the questions of #28, and in the core the journal pins them itself, in a selection such as <verbatim|issue-7-details>. Tools that do not know the extension still read, copy and verify both documents by the core rules alone.
 
   The same pattern serves other relations in which one document focuses on another: slides and the paper they present, a survey and the papers it explains, a paper and its formalisation, an article and the data and code of its computations. The core defines none of them, on purpose: it stays small, so that such relations, and in time an infrastructure for scientific knowledge built from them, can be designed on top of it, while the pins keep everything that is built checkable.
 
