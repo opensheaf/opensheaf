@@ -267,7 +267,7 @@
   </verbatim-code>
   </html-div-class>
 
-  <os-alert|note|Note.|Under the identity proposal (section 10.5, not yet agreed), an accepted copy is a shallow branch: it keeps the document version of the revision it copies (the authors' version 3, say, and 4 after a correction), and keeps the authors' <verbatim|object.json> as <verbatim|parent.object.json>.>
+  <os-alert|note|Note.|Under the identity proposal (section 10.5, not yet agreed), an accepted copy is a shallow branch: it keeps the document version of the revision it copies (the authors' version 3, say), and keeps the authors' <verbatim|object.json> as <verbatim|parent.object.json>. When the editors vet the authors' correction, the copy moves its branch point to that version, with the same evidence; a correction the journal makes itself is the journal's own version 4.>
 
   <subsection*|A journal that publishes its own version><label|a-journal-that-publishes-its-own-version>
 

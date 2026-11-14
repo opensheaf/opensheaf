@@ -174,12 +174,13 @@ list) never extends to its members.
 > specification, on the branch `proposal/identity`), not yet agreed.
 
 An object has a <dfn>name</dfn>, the digest of the genesis record written when
-it is first made available, and an <dfn>owner</dfn>, the one who decides its
+it is first shared or published (sealed), and an <dfn>owner</dfn>, the one who decides its
 versions. The pair (owner, name) identifies a <dfn>line</dfn>: one history,
 with a single writer. The archive that keeps the object is only where it
 lives: mirrors keep the same line elsewhere.
 
-The owner can be light or strong. A draft has none. A named owner is a URI the
+The owner can be light or strong. A draft has none, and no genesis record:
+that absence is what marks it as a draft. A named owner is a URI the
 owner asserts (an archive identifier, an ORCID iD, a web address): enough for
 most authors. A keyed owner is a public key: every version is signed, so the
 line can be checked even when its archive has gone.
