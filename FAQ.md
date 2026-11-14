@@ -121,7 +121,10 @@ says who keeps an object, what it is called, and where its files are. An
 object is named by the pair (archive identifier, object identifier), and its
 versions are added only by its archive, which is its single writer: a copy
 kept elsewhere (a mirror) stays the object of its archive and can only
-receive its versions. Archives do not overlap and do not nest.
+receive its versions. Archives do not overlap and do not nest. (Under a
+proposal, below, the single writer is the owner of a line, and the archive
+is only where the line is kept: see "Who owns an object, and what is a
+branch?")
 
 A **collection** is a statement: a versioned list of pins, made by a curator,
 over objects of any archives. It says which objects, in which versions, go
@@ -163,6 +166,41 @@ institution or a storage site); an **accepted copy** takes the one revision a
 selection vetted into the selection's own archive, where later changes are
 the curator's acts (for a journal). The licence of a collection (CC0 for the
 list) never extends to its members.
+
+## Who owns an object, and what is a branch?
+
+> [!NOTE]
+> This answer describes a proposal (section 6.5 and 10.5 of the
+> specification, on the branch `proposal/identity`), not yet agreed.
+
+An object has a <dfn>name</dfn>, the digest of the genesis record written when
+it is first shared or published (sealed), and an <dfn>owner</dfn>, the one who
+decides its versions. The pair (owner, name) identifies a <dfn>line</dfn>: one
+history, with a single writer. The archive that keeps the object is only where
+it lives: mirrors keep the same line elsewhere.
+
+The owner can be light or strong. A draft has none, and no genesis record:
+that absence is what marks it as a draft. A named owner is a URI the
+owner asserts (an archive identifier, an ORCID iD, a web address): enough for
+most authors. A keyed owner is a public key: every version is signed, so the
+line can be checked even when its archive has gone.
+
+Anyone can copy a genesis record, so the name alone cannot say whose history
+is the right one. That is why the owner is part of the identity: a copy kept
+by another owner is a <dfn>branch</dfn>, which declares the version it starts
+from. A **deep** branch copies all earlier versions and continues them (a
+co-author carrying the work on). A **shallow** branch keeps only the version
+it starts from, with the parent's inventory and `object.json` as evidence,
+and adds its own versions (a journal keeping the version it vetted, then its
+corrections). An accepted copy is a shallow branch kept by a selection.
+
+A shallow branch can be checked without its parent: the genesis record gives
+the name, the copied inventory gives the parent pin, the files match that
+inventory, and the copied `object.json` says whose version it was. This shows
+only that the branch is consistent. Whether the parent's owner really made
+that version is confirmed by resolving the parent, by the parent owner's
+signature, or by other witnesses; failing these, it rests on the branch
+owner's word.
 
 ## Can documents be linked in richer ways (a short account and its full proof)?
 

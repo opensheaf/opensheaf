@@ -245,6 +245,15 @@ members:
     revisions: [1]                # its document version 1; after a correction, [1, 2]
 ```
 
+> [!NOTE]
+> Under the identity proposal (section 10.5, not yet agreed), an accepted copy
+> is a shallow branch: it keeps the document version of the revision it
+> copies (the authors' version 3, say), and keeps the authors' `object.json`
+> as `parent.object.json`. A correction the journal makes itself is the
+> journal's own version 4; when the editors later vet the authors' corrected
+> version, the copy moves its branch point to it, with the same evidence, as
+> the journal's next version.
+
 ### A journal that publishes its own version
 
 A journal typesets the accepted paper in its own layout, gives it a DOI, and
@@ -261,6 +270,13 @@ publishes it under its licence, with the authors' agreement.
 - The journal's issues are selections of its own documents, or
   catalogues of them: the journal's own documents change only by its own
   acts in either case.
+
+> [!NOTE]
+> Under the identity proposal (section 10.5, not yet agreed), the version of
+> record is not a separate document: it is a later version of the journal's
+> branch of the authors' document (its accepted copy), with the same name,
+> the journal as `publisher` and the relations above. A derived work, such
+> as a translation, would be a separate document.
 
 ### A short account of a proof, with its detailed argument
 
@@ -355,8 +371,9 @@ Tools that know the extension follow it. Verifying the account resolves and
 checks the companions' pins like the pins of members. Mirroring the account
 mirrors its companions too, or reports that their licences forbid it.
 Keeping an accepted copy of the account does the same, and records the
-relation again in the copy's own `object.json`, since an accepted copy does
-not copy `object.json` (section 10.5). Presentations show "the full
+relation again in the copy's own `object.json`, since an accepted copy has
+its own `object.json` (section 10.5; under the identity proposal it keeps the
+original only as evidence, in `parent.object.json`). Presentations show "the full
 argument, version 3, as reviewed" beside the account. A selection could
 also treat the companions, in their pinned versions, as vetted with the
 account; whether an extension may do so is one of the questions of #28, and

@@ -160,7 +160,9 @@
       object identifier), and its versions are added only by its archive,
       which is its single writer: a copy kept elsewhere (a mirror) stays the
       object of its archive and can only receive its versions. Archives do not
-      overlap and do not nest.
+      overlap and do not nest. (Under a proposal, below, the single writer is
+      the owner of a line, and the archive is only where the line is kept: see
+      &quot;Who owns an object, and what is a branch?&quot;)
     </p>
     <p>
       A <strong>collection</strong> is a statement: a versioned list of pins,
@@ -210,7 +212,49 @@
       are the curator's acts (for a journal). The licence of a collection (CC0
       for the list) never extends to its members.
     </p>
-    <h2 id="auto-17"><a id="can-documents-be-linked-in-richer-ways-a-short-account-and-its-full-proof"></a>Can documents be linked in richer ways (a short account
+    <h2 id="auto-17"><a id="who-owns-an-object-and-what-is-a-branch"></a>Who owns an object, and what is a branch?<span style="margin-left: 1em"></span></h2>
+    <div class="os-alert os-note">
+      <font class="os-alert-label">Note.</font> This answer describes a proposal (section 6.5
+      and 10.5 of the specification, on the branch <tt class="verbatim">proposal/identity</tt>),
+      not yet agreed.
+    </div>
+    <p>
+      An object has a <dfn>name</dfn>, the digest of the genesis record
+      written when it is first shared or published (sealed), and an
+      <dfn>owner</dfn>, the one who decides its versions. The pair (owner,
+      name) identifies a <dfn>line</dfn>: one history, with a single writer.
+      The archive that keeps the object is only where it lives: mirrors keep
+      the same line elsewhere.
+    </p>
+    <p>
+      The owner can be light or strong. A draft has none, and no genesis
+      record: that absence is what marks it as a draft. A named owner is a URI
+      the owner asserts (an archive identifier, an ORCID iD, a web address):
+      enough for most authors. A keyed owner is a public key: every version is
+      signed, so the line can be checked even when its archive has gone.
+    </p>
+    <p>
+      Anyone can copy a genesis record, so the name alone cannot say whose
+      history is the right one. That is why the owner is part of the identity:
+      a copy kept by another owner is a <dfn>branch</dfn>, which declares the
+      version it starts from. A <strong>deep</strong> branch copies all
+      earlier versions and continues them (a co-author carrying the work on).
+      A <strong>shallow</strong> branch keeps only the version it starts from,
+      with the parent's inventory and <tt class="verbatim">object.json</tt> as evidence,
+      and adds its own versions (a journal keeping the version it vetted, then
+      its corrections). An accepted copy is a shallow branch kept by a
+      selection.
+    </p>
+    <p>
+      A shallow branch can be checked without its parent: the genesis record
+      gives the name, the copied inventory gives the parent pin, the files
+      match that inventory, and the copied <tt class="verbatim">object.json</tt> says
+      whose version it was. This shows only that the branch is consistent.
+      Whether the parent's owner really made that version is confirmed by
+      resolving the parent, by the parent owner's signature, or by other
+      witnesses; failing these, it rests on the branch owner's word.
+    </p>
+    <h2 id="auto-18"><a id="can-documents-be-linked-in-richer-ways-a-short-account-and-its-full-proof"></a>Can documents be linked in richer ways (a short account
     and its full proof)?<span style="margin-left: 1em"></span></h2>
     <p>
       Yes, on top of the format rather than in it. The core keeps only what
@@ -225,7 +269,7 @@
       publishing a short account of a proof whose detailed argument, possibly
       written with AI, stays online in the version reviewed.
     </p>
-    <h2 id="auto-18"><a id="where-do-signatures-and-timestamps-go-and-why-not-in-the-version-itself"></a>Where do signatures and timestamps go, and why not in
+    <h2 id="auto-19"><a id="where-do-signatures-and-timestamps-go-and-why-not-in-the-version-itself"></a>Where do signatures and timestamps go, and why not in
     the version itself?<span style="margin-left: 1em"></span></h2>
     <p>
       A signature or timestamp of an object version can only be made after the
@@ -248,14 +292,14 @@
       their own: each one is checked directly against the checksum file it
       names, which the pins fix.
     </p>
-    <h2 id="auto-19"><a id="why-is-the-html-version-not-part-of-the-deposit"></a>Why is the HTML version not part of the deposit?<span
+    <h2 id="auto-20"><a id="why-is-the-html-version-not-part-of-the-deposit"></a>Why is the HTML version not part of the deposit?<span
     style="margin-left: 1em"></span></h2>
     <p>
       Because presentations improve (stylesheets, exporters, fixes) and
       deposits must not change. The deposit keeps the sources and the PDF; the
       HTML is regenerated from the sources whenever the presentation changes.
     </p>
-    <h2 id="auto-20"><a id="how-do-i-withdraw-or-take-down-a-document"></a>How do I withdraw or take down a document?<span style="margin-left: 1em"></span></h2>
+    <h2 id="auto-21"><a id="how-do-i-withdraw-or-take-down-a-document"></a>How do I withdraw or take down a document?<span style="margin-left: 1em"></span></h2>
     <p>
       To withdraw a document (for instance a retraction), make a new version
       with a withdrawal notice: the content and its history stay, and
@@ -266,7 +310,7 @@
       mechanism for deleting single files; OpenSheaf will adopt it when it is
       published.
     </p>
-    <h2 id="auto-21"><a id="can-i-use-all-rights-reserved"></a>Can I use &quot;All rights reserved&quot;?<span style="margin-left: 1em"></span></h2>
+    <h2 id="auto-22"><a id="can-i-use-all-rights-reserved"></a>Can I use &quot;All rights reserved&quot;?<span style="margin-left: 1em"></span></h2>
     <p>
       Yes. Each document carries the licence its authors choose; &quot;All
       rights reserved&quot; means readers may access the document but not
@@ -274,14 +318,14 @@
       inventories) is CC0, so that it can be harvested and mirrored freely. On
       Zenodo, &quot;All rights reserved&quot; is entered as a custom licence.
     </p>
-    <h2 id="auto-22"><a id="will-google-scholar-find-the-papers"></a>Will Google Scholar find the papers?<span style="margin-left: 1em"></span></h2>
+    <h2 id="auto-23"><a id="will-google-scholar-find-the-papers"></a>Will Google Scholar find the papers?<span style="margin-left: 1em"></span></h2>
     <p>
       If the archive follows the website profile: each document then has a
       landing page with the <tt class="verbatim">citation_*</tt> meta tags Google
       Scholar reads, and a PDF on the same host. Appendix C also recommends a
       sitemap and FAIR Signposting links.
     </p>
-    <h2 id="auto-23"><a id="how-do-i-check-an-archive"></a>How do I check an archive?<span style="margin-left: 1em"></span></h2>
+    <h2 id="auto-24"><a id="how-do-i-check-an-archive"></a>How do I check an archive?<span style="margin-left: 1em"></span></h2>
     <p>
       A verifier validates the JSON files against the schemas in <a href="schemas/">schemas/</a>,
       validates the storage root with a standard OCFL validator (such as <tt
@@ -289,14 +333,14 @@
       storage root, and resolves and checks every member of every collection.
       The specification (section 14) lists the checks.
     </p>
-    <h2 id="auto-24"><a id="is-the-format-stable"></a>Is the format stable?<span style="margin-left: 1em"></span></h2>
+    <h2 id="auto-25"><a id="is-the-format-stable"></a>Is the format stable?<span style="margin-left: 1em"></span></h2>
     <p>
       Not yet: version 0.1 is a draft, and versions before 1.0 may change in
       incompatible ways. Every file declares the version of the format it
       follows, so that tools can tell. From version 1.0, minor versions will
       be backward compatible.
     </p>
-    <h2 id="auto-25"><a id="why-the-name"></a>Why the name?<span style="margin-left: 1em"></span></h2>
+    <h2 id="auto-26"><a id="why-the-name"></a>Why the name?<span style="margin-left: 1em"></span></h2>
     <p>
       A sheaf is a bundle of papers. In mathematics, a sheaf is the structure
       in which local pieces glue into a whole: archives kept and verified

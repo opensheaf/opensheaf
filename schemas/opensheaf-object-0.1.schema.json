@@ -264,6 +264,65 @@
         "minLength": 1
       },
       "additionalProperties": true
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z2-7]{51}[aq]$",
+      "$comment": "proposal (section 6.5): 256 bits of the SHA-512 digest of genesis.json, lowercase base32"
+    },
+    "owner": {
+      "type": "string",
+      "format": "uri",
+      "$comment": "proposal (section 6.5): a named owner (archive identifier, ORCID iD, web address) or a keyed owner (did:key:, openpgp4fpr:)"
+    },
+    "parent": {
+      "type": "object",
+      "$comment": "proposal (section 10.5): the parent version of a branch",
+      "required": [
+        "owner",
+        "name",
+        "archiveId",
+        "objectId",
+        "objectVersion",
+        "documentVersion",
+        "inventorySha512"
+      ],
+      "properties": {
+        "owner": {
+          "type": "string",
+          "format": "uri",
+          "$comment": "proposal (section 6.5): a named owner (archive identifier, ORCID iD, web address) or a keyed owner (did:key:, openpgp4fpr:)"
+        },
+        "name": {
+          "type": "string",
+          "pattern": "^[a-z2-7]{51}[aq]$",
+          "$comment": "proposal (section 6.5): 256 bits of the SHA-512 digest of genesis.json, lowercase base32"
+        },
+        "archiveId": {
+          "type": "string",
+          "format": "uri"
+        },
+        "objectId": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "maxLength": 64
+        },
+        "objectVersion": {
+          "$ref": "#/$defs/objectVersion"
+        },
+        "documentVersion": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "inventorySha512": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{128}$"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
     }
   },
   "$defs": {
@@ -435,5 +494,17 @@
         }
       }
     }
-  ]
+  ],
+  "dependentRequired": {
+    "name": [
+      "owner"
+    ],
+    "parent": [
+      "name",
+      "owner"
+    ],
+    "owner": [
+      "name"
+    ]
+  }
 }

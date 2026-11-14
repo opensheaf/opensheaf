@@ -121,7 +121,25 @@
                 }
               }
             }
+          },
+          "name": {
+            "type": "string",
+            "pattern": "^[a-z2-7]{51}[aq]$",
+            "$comment": "proposal (section 6.5): 256 bits of the SHA-512 digest of genesis.json, lowercase base32"
+          },
+          "owner": {
+            "type": "string",
+            "format": "uri",
+            "$comment": "proposal (section 6.5): a named owner (archive identifier, ORCID iD, web address) or a keyed owner (did:key:, openpgp4fpr:)"
           }
+        },
+        "dependentRequired": {
+          "name": [
+            "owner"
+          ],
+          "owner": [
+            "name"
+          ]
         }
       }
     },
