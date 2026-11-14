@@ -393,6 +393,26 @@
     <item>how a commitment is written as a creator in DataCite (for instance a <verbatim|nameIdentifier> with a scheme of its own), with the exact encoding of what is hashed, so that every tool computes the same digest.
   </itemize>
 
+  <subsection*|A learning record: a thesis, a project, an essay, an experiment><label|a-learning-record-a-thesis-a-project-an-essay-an-experiment>
+
+  A student documents the progression of a piece of work: a thesis, a project, an essay, an experiment. Each revision is kept, with the comments of the supervisors and, at the end, the reports of the examiners. The result is a <dfn|learning record>: an official, verifiable account of how the work was done, not only of what was handed in.
+
+  <\itemize>
+    <item><strong|The work.> The work is a document (<verbatim|resourceTypeGeneral> <verbatim|Dissertation> for a thesis, <verbatim|Text> with a <verbatim|resourceType> such as "Essay" or "Project report" otherwise); the data of an experiment and its code are documents of their own (<verbatim|Dataset>, <verbatim|Software>), linked to it by relations. Each revision the student hands in is a new document version, with a <verbatim|changes> note saying what changed (in answer to which comments, with which tools). Its <verbatim|stage> follows a scheme named by the institution (for instance "draft", "submitted for examination", "final"). The inventory records who deposited each version and when, so the history of the object is the log of the work.
+
+    <item><strong|Where it is kept.> The student keeps the work in an archive of their own, which they keep after leaving, or deposits it directly in an archive of the institution; either way the student is its single writer. Until the work is examined the archive is usually private (issue #29). Only what is handed in is deposited: under the proposal of #29, drafts may be changed until they are sent, and sending fixes them.
+
+    <item><strong|Dates.> A timestamp of each object version (section 13.2) shows that this revision existed by that date, which is what a deadline asks; a signature with the student's key shows who deposited it. When the institution keeps a mirror of the work at each submission, the mirror is also its receipt.
+
+    <item><strong|Comments.> The supervisors' comments are documents (<verbatim|Text>, with a <verbatim|resourceType> such as "Supervisor's comments"), each with <verbatim|Reviews> pointing to the exact object version commented on: a short text, an annotated PDF of that version, or both. The student's replies are documents too, or the <verbatim|changes> note of the next revision. A comment therefore always refers to the version it was written about, even after the work has moved on.
+
+    <item><strong|The record as a selection.> The institution keeps, in its archive, a selection for each piece of work. Its members are the documents of the process, each pinned in the version that played its part: the revisions handed in, the comments, the examiners' reports (<verbatim|PeerReview>, with <verbatim|Reviews> pointing to the version examined) and the decision. Each new version of the selection is a step, recorded by the department (who, when, and a message saying what was decided), as for <hlink|peer review|#peer-review-from-a-private-submission-to-a-published-record>. Examiners are usually named; where they are anonymous, they can be recorded as commitments, as referees are there.
+
+    <item><strong|What it shows.> The record does not prove who wrote the work, but it shows how it grew, revision by revision, and what was said about each revision: a body of evidence for the assessment of the work and of the student's part in it, and a record the student can show later, checkable by anyone they give it to.
+
+    <item><strong|What is published.> Usually only the final version, as the thesis in the institution's repository (an accepted copy, section 10.5) or in the student's own archive, made public. The rest of the record, with marks and comments, is personal data (section 16) and stays private, still verifiable by those who have it. When the institution's retention period ends, the record is deleted by a takedown (section 11.2); its tombstones show that it existed, and the student's own copy is not affected.
+  </itemize>
+
   <subsection*|A digest, a reading list, a curated bibliography><label|a-digest-a-reading-list-a-curated-bibliography>
 
   A researcher publishes a list of recommended papers on a topic, from any OpenSheaf archives.

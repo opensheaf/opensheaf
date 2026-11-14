@@ -727,7 +727,103 @@ osheaf collection sync issue-7-details --from issue-7-details.yaml</pre>
         </p>
       </li>
     </ul>
-    <h3 id="auto-15"><a id="a-digest-a-reading-list-a-curated-bibliography"></a>A digest, a reading list, a curated bibliography<span
+    <h3 id="auto-15"><a id="a-learning-record-a-thesis-a-project-an-essay-an-experiment"></a>A learning record: a thesis, a project, an essay, an
+    experiment<span style="margin-left: 1em"></span></h3>
+    <p>
+      A student documents the progression of a piece of work: a thesis, a
+      project, an essay, an experiment. Each revision is kept, with the
+      comments of the supervisors and, at the end, the reports of the
+      examiners. The result is a <dfn>learning record</dfn>: an official,
+      verifiable account of how the work was done, not only of what was handed
+      in.
+    </p>
+    <ul>
+      <li>
+        <p>
+          <strong>The work.</strong> The work is a document (<tt class="verbatim">resourceTypeGeneral</tt>
+          <tt class="verbatim">Dissertation</tt> for a thesis, <tt class="verbatim">Text</tt> with
+          a <tt class="verbatim">resourceType</tt> such as &quot;Essay&quot; or
+          &quot;Project report&quot; otherwise); the data of an experiment and
+          its code are documents of their own (<tt class="verbatim">Dataset</tt>, <tt
+          class="verbatim">Software</tt>), linked to it by relations. Each revision the
+          student hands in is a new document version, with a <tt class="verbatim">changes</tt>
+          note saying what changed (in answer to which comments, with which
+          tools). Its <tt class="verbatim">stage</tt> follows a scheme named by the
+          institution (for instance &quot;draft&quot;, &quot;submitted for
+          examination&quot;, &quot;final&quot;). The inventory records who
+          deposited each version and when, so the history of the object is the
+          log of the work.
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>Where it is kept.</strong> The student keeps the work in an
+          archive of their own, which they keep after leaving, or deposits it
+          directly in an archive of the institution; either way the student is
+          its single writer. Until the work is examined the archive is usually
+          private (issue #29). Only what is handed in is deposited: under the
+          proposal of #29, drafts may be changed until they are sent, and
+          sending fixes them.
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>Dates.</strong> A timestamp of each object version (section
+          13.2) shows that this revision existed by that date, which is what a
+          deadline asks; a signature with the student's key shows who
+          deposited it. When the institution keeps a mirror of the work at
+          each submission, the mirror is also its receipt.
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>Comments.</strong> The supervisors' comments are documents
+          (<tt class="verbatim">Text</tt>, with a <tt class="verbatim">resourceType</tt> such as
+          &quot;Supervisor's comments&quot;), each with <tt class="verbatim">Reviews</tt>
+          pointing to the exact object version commented on: a short text, an
+          annotated PDF of that version, or both. The student's replies are
+          documents too, or the <tt class="verbatim">changes</tt> note of the next
+          revision. A comment therefore always refers to the version it was
+          written about, even after the work has moved on.
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>The record as a selection.</strong> The institution keeps,
+          in its archive, a selection for each piece of work. Its members are
+          the documents of the process, each pinned in the version that played
+          its part: the revisions handed in, the comments, the examiners'
+          reports (<tt class="verbatim">PeerReview</tt>, with <tt class="verbatim">Reviews</tt>
+          pointing to the version examined) and the decision. Each new version
+          of the selection is a step, recorded by the department (who, when,
+          and a message saying what was decided), as for <a href="#peer-review-from-a-private-submission-to-a-published-record">peer
+          review</a>. Examiners are usually named; where they are anonymous,
+          they can be recorded as commitments, as referees are there.
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>What it shows.</strong> The record does not prove who wrote
+          the work, but it shows how it grew, revision by revision, and what
+          was said about each revision: a body of evidence for the assessment
+          of the work and of the student's part in it, and a record the
+          student can show later, checkable by anyone they give it to.
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>What is published.</strong> Usually only the final version,
+          as the thesis in the institution's repository (an accepted copy,
+          section 10.5) or in the student's own archive, made public. The rest
+          of the record, with marks and comments, is personal data (section
+          16) and stays private, still verifiable by those who have it. When
+          the institution's retention period ends, the record is deleted by a
+          takedown (section 11.2); its tombstones show that it existed, and
+          the student's own copy is not affected.
+        </p>
+      </li>
+    </ul>
+    <h3 id="auto-16"><a id="a-digest-a-reading-list-a-curated-bibliography"></a>A digest, a reading list, a curated bibliography<span
     style="margin-left: 1em"></span></h3>
     <p>
       A researcher publishes a list of recommended papers on a topic, from any
@@ -754,7 +850,7 @@ osheaf collection sync issue-7-details --from issue-7-details.yaml</pre>
         </p>
       </li>
     </ul>
-    <h3 id="auto-16"><a id="a-review-journal-like-mathematical-reviews-or-zbmath-open"></a>A review journal (like Mathematical Reviews or zbMATH
+    <h3 id="auto-17"><a id="a-review-journal-like-mathematical-reviews-or-zbmath-open"></a>A review journal (like Mathematical Reviews or zbMATH
     Open)<span style="margin-left: 1em"></span></h3>
     <p>
       A review journal publishes short reviews of papers published elsewhere.
@@ -788,7 +884,7 @@ osheaf collection sync issue-7-details --from issue-7-details.yaml</pre>
         </p>
       </li>
     </ul>
-    <h3 id="auto-17"><a id="proceedings-special-issues-volumes"></a>Proceedings, special issues, volumes<span style="margin-left: 1em"></span></h3>
+    <h3 id="auto-18"><a id="proceedings-special-issues-volumes"></a>Proceedings, special issues, volumes<span style="margin-left: 1em"></span></h3>
     <p>
       Proceedings of a conference are a selection of the talks' papers, each
       vetted in the version presented; a volume is a selection whose members
@@ -796,7 +892,7 @@ osheaf collection sync issue-7-details --from issue-7-details.yaml</pre>
       special issue of a journal is a selection of the journal's own
       documents, or of accepted copies.
     </p>
-    <h2 id="auto-18"><a id="what-happens-when-"></a>What happens when &hellip;<span style="margin-left: 1em"></span></h2>
+    <h2 id="auto-19"><a id="what-happens-when-"></a>What happens when &hellip;<span style="margin-left: 1em"></span></h2>
     <p>
       <table style="display: inline-table; vertical-align: middle">
         <tbody><tr>
