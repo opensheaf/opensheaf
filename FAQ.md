@@ -174,10 +174,10 @@ list) never extends to its members.
 > specification, on the branch `proposal/identity`), not yet agreed.
 
 An object has a <dfn>name</dfn>, the digest of the genesis record written when
-it is first shared or published (sealed), and an <dfn>owner</dfn>, the one who decides its
-versions. The pair (owner, name) identifies a <dfn>line</dfn>: one history,
-with a single writer. The archive that keeps the object is only where it
-lives: mirrors keep the same line elsewhere.
+it is first shared or published (sealed), and an <dfn>owner</dfn>, the one who
+decides its versions. The pair (owner, name) identifies a <dfn>line</dfn>: one
+history, with a single writer. The archive that keeps the object is only where
+it lives: mirrors keep the same line elsewhere.
 
 The owner can be light or strong. A draft has none, and no genesis record:
 that absence is what marks it as a draft. A named owner is a URI the
